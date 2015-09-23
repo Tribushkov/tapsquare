@@ -1,0 +1,30 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="panel panel-default main__panel_mtop">
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm password"></input>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-default btn-primary">Register</button>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-1">
+                            <a class="btn btn-success" href="#login">Back</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</fest:template>

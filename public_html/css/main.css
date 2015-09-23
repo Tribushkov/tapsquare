@@ -1,0 +1,21 @@
+/*Отступ сверху у всех экранов*/
+
+.main__panel_mtop {
+    margin-top: 15%;
+}
+
+.main__gamepanel_mtop {
+    margin-top: 1%;
+}
+/*Заголовок таблицы результатов*/
+
+.main__header_fsize {
+    text-align: center;
+    font-size: 48pt;
+}
+/*игровая вьюха*/
+
+.main__gamescene {
+    line-height: 440pt;
+    text-align: center;
+}
