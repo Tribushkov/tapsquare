@@ -1,7 +1,9 @@
 define([
-    'backbone'
+    'backbone',
+    'views/viewmanager'
 ], function(
-    Backbone
+    Backbone,
+    ViewManager
 ) {
     console.log("before class Router");
     var Router = Backbone.Router.extend({
@@ -12,21 +14,41 @@ define([
             'register': 'registerAction',
             '': 'defaultActions'
         },
+
+        myManager: null,
+
+        initialize: function () {
+            this.myManager = new ViewManager(); //Создал мэнеджер вьюх
+        },
+
+        showView: function(view) {
+            // переходим на менеджер вьюх, передавая ему нужную вьюху
+            this.myManager.displayView(view); 
+        },
+
+          /* экшены для переходов по вьюхам */
         defaultActions: function() {
-            $('#page').html(mainTmpl());
+            this.showView(this.myManager.MAIN_VIEW);
+            // this.showView('MAIN_VIEW');
         },
+
         scoreAction: function() {
-            $('#page').html(scoreboardTmpl());
+            this.showView(this.myManager.SCOREBOARD_VIEW);
+            // $('#page').html(scoreboardTmpl());
         },
+
         gameAction: function() {
-            $('#page').html(gameTmpl());
+            this.showView(this.myManager.GAME_VIEW);
         },
+
         loginAction: function() {
-            $('#page').html(loginTmpl());
+            this.showView(this.myManager.LOGIN_VIEW);       
         },
+
         registerAction: function() {
-            $('#page').html(registerTmpl());
+            this.showView(this.myManager.REGISTER_VIEW);  
         }
+            
     });
     console.log("after class Router");
     return new Router();

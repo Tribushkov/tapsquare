@@ -6,23 +6,37 @@ define([
     tmpl
 ){
 
-    var View = Backbone.View.extend({
+    return Backbone.View.extend({
 
         template: tmpl,
+        
+        el: $('body'),
+
+        events: {
+            "click #edit" : "alert"
+        },
+
+        alert: function() {
+            alert("RABOTAET, Simple backbone-style onclick alert");
+        },
+
         initialize: function () {
-            // TODO
+
         },
         render: function () {
-            // TODO
+            $('#page').html(loginTmpl());
+            $("#edit1").click(function() {
+                alert( "JQUERY ALERT" );
+            });
+            
         },
         show: function () {
             // TODO
         },
         hide: function () {
             // TODO
-        }
+        },
 
     });
 
-    return new View();
 });

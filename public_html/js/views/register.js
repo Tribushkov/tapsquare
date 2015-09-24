@@ -1,6 +1,6 @@
 define([
     'backbone',
-    'tmpl/scoreboard'
+    'tmpl/register'
 ], function(
     Backbone,
     tmpl
@@ -9,11 +9,12 @@ define([
     return Backbone.View.extend({
 
         template: tmpl,
+
         initialize: function () {
             // TODO
         },
         render: function () {
-            $('#page').html(scoreboardTmpl());
+            $('#page').html(registerTmpl());
         },
         show: function () {
             // TODO

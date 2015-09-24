@@ -6,14 +6,14 @@ define([
     tmpl
 ){
 
-    var View = Backbone.View.extend({
+    return Backbone.View.extend({
 
         template: tmpl,
         initialize: function () {
             // TODO
         },
         render: function () {
-            // TODO
+            $('#page').html(gameTmpl());
         },
         show: function () {
             // TODO
@@ -24,5 +24,4 @@ define([
 
     });
 
-    return new View();
 });

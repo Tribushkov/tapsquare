@@ -19,11 +19,14 @@
                         <div class="col-md-1">
                             <button type="submit" class="btn btn-default btn-primary">Register</button>
                         </div>
-                        <div class="col-xs-offset-1 col-xs-1">
-                            <a class="btn btn-success" href="#login">Back</a>
-                        </div>
+                        
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-10 col-md-1">
+                <a class="btn btn-success" href="#login">Back</a>
             </div>
         </div>
     </div>
