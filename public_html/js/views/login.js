@@ -13,21 +13,40 @@ define([
         el: $('body'),
 
         events: {
-            "click #edit" : "alert"
+            "click" : "alert"
         },
 
         alert: function() {
-            alert("RABOTAET, Simple backbone-style onclick alert");
+            
         },
 
         initialize: function () {
 
         },
+
         render: function () {
             $('#page').html(loginTmpl());
-            $("#edit1").click(function() {
-                alert( "JQUERY ALERT" );
+
+
+            $("#idForm").on("submit", function(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/signin",
+                    data: $(this).serialize(),
+                    success: function(){
+                        alert("OTPRAVIL");
+                    },
+
+                    // .ajaxError() {
+                    //     alert("405=(");
+                    // }
+                    // 405: function(){
+                    //     alert("405=(");
+                    // }
+                });
             });
+
             
         },
         show: function () {

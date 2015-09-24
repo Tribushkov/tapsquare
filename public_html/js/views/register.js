@@ -15,6 +15,18 @@ define([
         },
         render: function () {
             $('#page').html(registerTmpl());
+            $("#registerForm").on("submit", function(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/signup",
+                    data: $(this).serialize(),
+                    success: function(){
+                        alert("Zaregistrirovalsya!");
+                        window.location.replace("/#login");
+                    }
+                });
+            });
         },
         show: function () {
             // TODO
