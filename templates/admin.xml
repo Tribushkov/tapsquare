@@ -1,21 +1,32 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="col-md-offset-4 col-md-4">
+    <div class="col-md-offset-4 col-md-2">
         <div class="panel panel-info main__panel_mtop">
             <div class="panel-heading">
-                <div class="main__header_fsize">Users</div>
+                <div class="main__header_fsize">ALL</div>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover table-condenced">
                 <thead>
                     <tr>
-                        <th>USERNAME</th>
-                        <th>SESSION</th>
+                        <th style="text-align:center">Email</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="usersTable" style="text-align:center">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info main__panel_mtop">
+            <div class="panel-heading">
+                <div class="main__header_fsize">Logged</div>
+            </div>
+            <table class="table table-hover table-condenced">
+                <thead>
                     <tr>
-                        <td>John</td>
-                        <td>22626</td>
+                        <th style="text-align:center">Email</th>
                     </tr>
+                </thead>
+                <tbody id="loggedTable" style="text-align:center">
                 </tbody>
             </table>
         </div>
