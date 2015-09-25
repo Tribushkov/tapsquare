@@ -34,7 +34,7 @@ define([
                     },
 
                     statusCode: {
-                        202: function() {
+                        403: function() {
                             $('#logButton').html('<a class="btn btn-default" href="#login">Log in</a>')
                         }
                     }
