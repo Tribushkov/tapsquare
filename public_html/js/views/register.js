@@ -39,15 +39,14 @@ define([
                                     url: "/signup",
                                     data: $(this).serialize(),
                                     success: function(data) {
-                                    try {
-                                        console.log(data.getResponseHeader('Error'))
+                                        window.location.replace("/#login");
+                                    },
+                                    statusCode: {
+                                        403: function(data) {
                                         $("#emailNotofication").html('<label class="control-label" for="password1" id="passwordLog">Sorry, this email is already engaged</label>')
                                         $("#emailGroup").removeClass("form-group").addClass("form-group has-error");
-                                    } catch (err) {
-                                        window.location.replace("/#login");
-                                    }
 
-                                }
+                                    }
                             });
                     } else {
                         $("#passwordNotification").html('<label class="control-label" for="inputWarning2">Passwords does not match</label>')

@@ -47,7 +47,7 @@ define([
                         window.location.replace("/#");
                     },
                     statusCode: {
-                        500: function(data) {
+                      403: function(data) {
                             $("#passwordControl").show();
                             $("#loginControl").show();
                             $("#loginGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
