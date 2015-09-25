@@ -1,0 +1,28 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="panel panel-info main__panel_mtop">
+            <div class="panel-heading">
+                <div class="main__header_fsize">Users</div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>SESSION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>22626</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-6 col-md-2" id="js-back">
+                <a class="btn btn-danger" href="/admin?shutdown=1000">SHUT DOWN SERVER</a>
+            </div>
+        </div>
+    </div>
+</fest:template>

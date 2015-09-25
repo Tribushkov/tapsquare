@@ -12,6 +12,7 @@ define([
             'game': 'gameAction',
             'login': 'loginAction',
             'register': 'registerAction',
+            'admin' : 'adminAction',
             '': 'defaultActions'
         },
 
@@ -47,7 +48,12 @@ define([
 
         registerAction: function() {
             this.showView(this.myManager.REGISTER_VIEW);  
+        },
+
+        adminAction: function() {
+            this.showView(this.myManager.ADMIN_VIEW);  
         }
+
             
     });
     console.log("after class Router");

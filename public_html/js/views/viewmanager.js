@@ -3,13 +3,15 @@ define([
     'views/login',
     'views/register',
     'views/game',
-    'views/scoreboard'
+    'views/scoreboard',
+    'views/admin'
 ], function(
     Main,
     Login,
     Register,
     Game,
-    Scoreboard
+    Scoreboard,
+    Admin
 ){
 
     var ViewManager = Backbone.View.extend({
@@ -19,13 +21,15 @@ define([
         REGISTER_VIEW: "register",
         MAIN_VIEW: "main",
         SCOREBOARD_VIEW: "scoreboard",
+        ADMIN_VIEW: "admin",
 
         views: {
             GAME_VIEW: null,
             LOGIN_VIEW: null,
             MAIN_VIEW: null,
             SCOREBOARD_VIEW: null,
-            REGISTER_VIEW: null
+            REGISTER_VIEW: null,
+            ADMIN_VIEW: null
         },
 
         currentView: null,
@@ -36,6 +40,7 @@ define([
             this.views[this.REGISTER_VIEW] = new Register();
             this.views[this.GAME_VIEW] = new Game();
             this.views[this.SCOREBOARD_VIEW] = new Scoreboard();
+            this.views[this.ADMIN_VIEW] = new Admin();
         },
 
         displayView: function(viewKey) {
