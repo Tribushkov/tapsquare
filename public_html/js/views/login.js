@@ -46,13 +46,12 @@ define([
                     success: function(){
                         alert("OTPRAVIL");
                     },
-
-                    // .ajaxError() {
-                    //     alert("405=(");
-                    // }
-                    // 405: function(){
-                    //     alert("405=(");
-                    // }
+                    statusCode: {
+                        500: function(data) {
+                            // var aa = data.getAllResponseHeaders();
+                            console.log(data.getResponseHeader('Error'));
+                        }
+                    },
                 });
             });
 
