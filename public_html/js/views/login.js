@@ -44,12 +44,28 @@ define([
                     url: "/signin",
                     data: $(this).serialize(),
                     success: function(){
-                        alert("OTPRAVIL");
+                        window.location.replace("/#");
                     },
                     statusCode: {
                         500: function(data) {
-                            // var aa = data.getAllResponseHeaders();
-                            console.log(data.getResponseHeader('Error'));
+                            $("#passwordControl").show();
+                            $("#loginControl").show();
+                            $("#loginGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
+                            $("#passwordGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
+                            switch(data.getResponseHeader('Error')){
+                                case '0':
+                                    $("#passwordControl").html('<label class="control-label" for="password1" id="passwordLog">Incorrect password</label>')
+                                    $("#passwordGroup").removeClass( "form-group" ).addClass( "form-group has-error" );
+                                    $("#loginControl").hide();
+                                    break
+                                case '1':
+                                    $("#loginControl").html('<label class="control-label" for="login1" id="passwordLog">User does not exist</label>')
+                                    $("#loginGroup").removeClass( "form-group" ).addClass( "form-group has-error" );
+                                    $("#passwordControl").hide();
+                                    break
+                                default:
+                                    break
+                            }
                         }
                     },
                 });

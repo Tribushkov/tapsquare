@@ -5,12 +5,12 @@
         <div class="panel panel-default main__panel_mtop">
             <div class="panel-body">
                 <form id="idForm" method="POST">
-                    <div class="form-group">
-                        <label class="control-label" for="email1" id="emailLog" style="display:none;"></label>
+                    <div class="form-group" id="loginGroup">
+                        <div id="loginControl"></div>
                         <input type="email" name="email" class="form-control" id="email1" placeholder="Email"></input>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label" for="password1" id="passwordLog" style="display:none;"></label>
+                    <div class="form-group" id="passwordGroup">
+                        <div id="passwordControl"></div>
                         <input type="password" class="form-control" name="password" id="password1" placeholder="Password"></input>
                     </div>
                     <div class="row">

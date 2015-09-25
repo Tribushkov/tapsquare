@@ -4,43 +4,64 @@ define([
 ], function(
     Backbone,
     tmpl
-){
+) {
 
     return Backbone.View.extend({
 
-        template: tmpl,
+            template: tmpl,
 
-        initialize: function () {
-            // TODO
-        },
-        render: function () {
-            $.ajax({
+            initialize: function() {
+                // TODO
+            },
+            render: function() {
+                $.ajax({
                     type: "POST",
                     url: "/islogged",
                     data: null,
-                    success: function(){
-                       window.location.replace("/#");
+                    success: function() {
+                        window.location.replace("/#");
                     },
-            });
-            
-            $('#page').html(registerTmpl());
-            $("#registerForm").on("submit", function(event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "/signup",
-                    data: $(this).serialize(),
-                    success: function(){
-                        alert("Zaregistrirovalsya!");
-                        window.location.replace("/#login");
-                    }
                 });
-            });
+
+                $('#page').html(registerTmpl());
+                $("#registerForm").on("submit", function(event) {
+                        event.preventDefault();
+
+                        $("#password1Group").removeClass("form-group has-error").addClass("form-group");
+                        $("#password2Group").removeClass("form-group has-error").addClass("form-group");
+
+                        var aaa = $("#password1").val();
+                        var aa = $("#password2").val();
+                        if (aaa == aa) {
+
+                            $.ajax({
+                                    type: "POST",
+                                    url: "/signup",
+                                    data: $(this).serialize(),
+                                    success: function(data) {
+                                    try {
+                                        console.log(data.getResponseHeader('Error'))
+                                        $("#emailNotofication").html('<label class="control-label" for="password1" id="passwordLog">Sorry, this email is already engaged</label>')
+                                        $("#emailGroup").removeClass("form-group").addClass("form-group has-error");
+                                    } catch (err) {
+                                        window.location.replace("/#login");
+                                    }
+
+                                }
+                            });
+                    } else {
+                        $("#passwordNotification").html('<label class="control-label" for="inputWarning2">Passwords does not match</label>')
+                        $("#password1Group").addClass("has-error");
+                        $("#password2Group").addClass("has-error");
+                    }
+
+
+                });
         },
-        show: function () {
+        show: function() {
             // TODO
         },
-        hide: function () {
+        hide: function() {
             // TODO
         }
 
