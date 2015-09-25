@@ -17,54 +17,45 @@ define([
         render: function() {
             $('#page').html(adminTmpl());
             $.ajax({
-                    type: "GET",
-                    url: "/admin",
-                    data: null,
-                    success: function(data){
-                        var data = JSON.stringify(data);
-                        data = JSON.parse(data);
+                type: "GET",
+                url: "/admin",
+                data: null,
+                success: function(data) {
+                    var data = JSON.stringify(data);
+                    data = JSON.parse(data);
 
-                        try {
-                            var allUsers = new Array();
-                            allUsers = data['users'];
-                            console.log(allUsers);
-                            for (i = 0; i < allUsers.length; i++){
+                    try {
+                        var allUsers = new Array();
+                        allUsers = data['users'];
+                        if (String(allUsers[1]).length == 1) {
+                            $("#usersTable").append("<tr><td>" + allUsers + "</td></tr>")
+                        } else {
+                            for (i = 0; i < allUsers.length; i++) {
                                 $("#usersTable").append("<tr><td>" + allUsers[i] + "</td></tr>")
                             }
-                        } catch(error) {
-                            $("#usersTable").append("<tr><td>Nobody</td></tr>")
                         }
-                        
-                        try {
-                            var sessions = new Array(); 
-                            sessions = data['sessions'];
-                            for (i = 0; i < sessions.length; i++){
+                    } catch (error) {
+                        $("#usersTable").append("<tr><td>Nobody</td></tr>")
+                    }
+
+                    try {
+                        var sessions = new Array();
+                        sessions = data['sessions'];
+                        if (String(sessions[1]).length == 1) {
+                            $("#loggedTable").append("<tr><td>" + String(sessions) + "</td></tr>")
+                        } else {
+                            for (i = 0; i < sessions.length; i++) {
                                 $("#loggedTable").append("<tr><td>" + sessions[i] + "</td></tr>")
                             }
-                        } catch(error) {
-                            $("#loggedTable").append("<tr><td>Nobody</td></tr>")
                         }
-
-                        
-                    },
-                    dataType: "json",
-
-            //         // statusCode: {
-            //         //     404: function() {
-            //         //         alert( "page not found" );
-            //         //  }
+                    } catch (error) {
+                        $("#loggedTable").append("<tr><td>Nobody</td></tr>")
+                    }
 
 
-            //         // .ajaxError() {
-            //         //     alert("405=(");
-            //         // }
-            //         // 405: function(){
-            //         //     alert("405=(");
-            //         // }
-                });
-            // $.get("/admin", function(data, status, xhr){
-            //     alert(JSON.stringify(data));
-            // }, "json");
+                },
+                dataType: "json",
+            });
         },
 
         show: function() {
@@ -72,7 +63,7 @@ define([
         },
 
         hide: function() {
-        
+
         }
 
     });

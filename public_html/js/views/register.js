@@ -29,6 +29,7 @@ define([
 
                         $("#password1Group").removeClass("form-group has-error").addClass("form-group");
                         $("#password2Group").removeClass("form-group has-error").addClass("form-group");
+                        $("#passwordNotification").html('');
 
                         var aaa = $("#password1").val();
                         var aa = $("#password2").val();
@@ -43,10 +44,11 @@ define([
                                     },
                                     statusCode: {
                                         403: function(data) {
-                                        $("#emailNotofication").html('<label class="control-label" for="password1" id="passwordLog">Sorry, this email is already engaged</label>')
+                                        $("#emailNotification").html('<label class="control-label" for="password1" id="passwordLog">Sorry, this email is already engaged</label>')
                                         $("#emailGroup").removeClass("form-group").addClass("form-group has-error");
 
                                     }
+                                }
                             });
                     } else {
                         $("#passwordNotification").html('<label class="control-label" for="inputWarning2">Passwords does not match</label>')
