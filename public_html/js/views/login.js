@@ -25,9 +25,18 @@ define([
         },
 
         render: function () {
+            $.ajax({
+                    type: "POST",
+                    url: "/islogged",
+                    data: null,
+                    success: function(){
+                       window.location.replace("/#");
+                    },
+            });
+
             $('#page').html(loginTmpl());
 
-
+           
             $("#idForm").on("submit", function(event) {
                 event.preventDefault();
                 $.ajax({

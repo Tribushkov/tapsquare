@@ -10,8 +10,8 @@
                     <div class="btn-group" role="group">
                         <a class="btn btn-primary" href="/#game">Start game</a>
                     </div>
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-default" href="/#login">Log in</a>
+                    <div class="btn-group" role="group" id="logButton">
+                        <!-- <a class="btn btn-default" href="/#login">Log in</a> -->
                     </div>
                 </div>
             </div>

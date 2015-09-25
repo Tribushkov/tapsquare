@@ -16,6 +16,31 @@ define([
 
         render: function() {
             $('#page').html(mainTmpl());
+            $.ajax({
+                    type: "POST",
+                    url: "/islogged",
+                    data: null,
+                    success: function(){
+                       $('#logButton').html('<a class="btn btn-default" id="logoutButton">Log out</a>')
+                       $('#logoutButton').click(function() {
+                            $.ajax({
+                                type: "POST",
+                                url: "/logout",
+                                success: function() {
+                                    $('#logButton').html('<a class="btn btn-default" href="#login">Log in</a>')
+                                }
+                            });
+                       });
+                    },
+
+                    statusCode: {
+                        202: function() {
+                            $('#logButton').html('<a class="btn btn-default" href="#login">Log in</a>')
+                        }
+                    }
+
+                });
+            
         },
 
         show: function() {

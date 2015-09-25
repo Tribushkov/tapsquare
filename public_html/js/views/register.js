@@ -14,6 +14,15 @@ define([
             // TODO
         },
         render: function () {
+            $.ajax({
+                    type: "POST",
+                    url: "/islogged",
+                    data: null,
+                    success: function(){
+                       window.location.replace("/#");
+                    },
+            });
+            
             $('#page').html(registerTmpl());
             $("#registerForm").on("submit", function(event) {
                 event.preventDefault();
