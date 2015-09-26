@@ -5,7 +5,7 @@
                 <h1 style="text-align: center">TapSquare</h1>
                 <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 6%">
                     <div class="btn-group" role="group">
-                        <a class="btn btn-default" href="/#score">Score board</a>
+                        <a class="btn btn-default" href="/#score">Scoreboard</a>
                     </div>
                     <div class="btn-group" role="group">
                         <a class="btn btn-primary" href="/#game">Start game</a>

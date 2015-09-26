@@ -17,5 +17,5 @@ $ grunt shell:server
 
 
 Admins' page: 
-http://localhost:8080/#admin
+[admin page](http://localhost:8080/#admin)
 
