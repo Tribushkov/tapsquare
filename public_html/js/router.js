@@ -12,7 +12,7 @@ define([
             'game': 'gameAction',
             'login': 'loginAction',
             'register': 'registerAction',
-            'admin' : 'adminAction',
+            'adminpage' : 'adminAction',
             '': 'defaultActions'
         },
 

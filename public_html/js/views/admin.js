@@ -18,7 +18,7 @@ define([
             $('#page').html(adminTmpl());
             $.ajax({
                 type: "GET",
-                url: "/admin",
+                url: "/adminpage",
                 data: null,
                 success: function(data) {
                     var data = JSON.stringify(data);
