@@ -1,5 +1,9 @@
 {
-  "name": "epicgame",
+  "name": "tapsquare",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/SoBeard/tapsquare.git"
+  },
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
