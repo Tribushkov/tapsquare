@@ -14,6 +14,12 @@ define([
         },
         render: function () {
             $('#page').html(gameTmpl());
+            $(".game-cell").click(function() {
+                if ($(this).attr('class') == 'game-cell')
+                    $(this).addClass('hover');
+                else 
+                    $(this).removeClass('hover');
+            });
         },
         show: function () {
             // TODO

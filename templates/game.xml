@@ -1,14 +1,68 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="col-md-offset-2 col-md-8">
-        <div class="panel panel-default main__gamepanel_mtop">
-            <div class="panel-body">
-                <div class="main__gamescene"> this could be our game :(</div>
+    <div class="row">
+        <div class="main__gamescene">
+                    <div class="container-fluid">
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                    <div class="game-cell"></div>
+                        
+                    </div>   
             </div>
-        </div>
+    </div>
+                
         <div class="row">
-            <div class="col-md-offset-11 col-md-2">
-                <a class="btn btn-success" href="#">Back</a>
-            </div>
+        <div class="col-md-offset-10 col-md-2">
+           <a class="btn btn-success" href="#" style="margin:20%;">Back</a> 
+        </div>
+                            
         </div>
     </div>
 </fest:template>

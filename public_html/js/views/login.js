@@ -39,6 +39,7 @@ define([
            
             $("#idForm").on("submit", function(event) {
                 event.preventDefault();
+                $("#idForm").removeClass('animated shake');
                 $.ajax({
                     type: "POST",
                     url: "/signin",
@@ -52,6 +53,9 @@ define([
                             $("#loginControl").show();
                             $("#loginGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
                             $("#passwordGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
+
+                            $("#idForm").addClass('animated shake');
+
                             switch(data.getResponseHeader('Error')){
                                 case '0':
                                     $("#passwordControl").html('<label class="control-label" for="password1" id="passwordLog">Incorrect password</label>')
