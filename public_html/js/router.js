@@ -19,23 +19,19 @@ define([
         myManager: null,
 
         initialize: function () {
-            this.myManager = new ViewManager(); //Создал мэнеджер вьюх
+            this.myManager = new ViewManager(); 
         },
 
         showView: function(view) {
-            // переходим на менеджер вьюх, передавая ему нужную вьюху
-            this.myManager.displayView(view); 
+            this.myManager.displayView(view);
         },
 
-          /* экшены для переходов по вьюхам */
         defaultActions: function() {
             this.showView(this.myManager.MAIN_VIEW);
-            // this.showView('MAIN_VIEW');
         },
 
         scoreAction: function() {
             this.showView(this.myManager.SCOREBOARD_VIEW);
-            // $('#page').html(scoreboardTmpl());
         },
 
         gameAction: function() {
@@ -43,18 +39,18 @@ define([
         },
 
         loginAction: function() {
-            this.showView(this.myManager.LOGIN_VIEW);       
+            this.showView(this.myManager.LOGIN_VIEW);
         },
 
         registerAction: function() {
-            this.showView(this.myManager.REGISTER_VIEW);  
+            this.showView(this.myManager.REGISTER_VIEW);
         },
 
         adminAction: function() {
-            this.showView(this.myManager.ADMIN_VIEW);  
+            this.showView(this.myManager.ADMIN_VIEW);
         }
 
-            
+
     });
     console.log("after class Router");
     return new Router();

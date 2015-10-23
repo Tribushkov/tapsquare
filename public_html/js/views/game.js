@@ -9,23 +9,25 @@ define([
     return Backbone.View.extend({
 
         template: tmpl,
+        el: 'div#game',
         initialize: function () {
             // TODO
         },
         render: function () {
-            $('#page').html(gameTmpl());
+            this.$el.html(gameTmpl());
+
             $(".game-cell").click(function() {
                 if ($(this).attr('class') == 'game-cell')
                     $(this).addClass('hover');
-                else 
+                else
                     $(this).removeClass('hover');
             });
         },
         show: function () {
-            // TODO
+            this.$el.show();
         },
         hide: function () {
-            // TODO
+            this.$el.hide();
         }
 
     });

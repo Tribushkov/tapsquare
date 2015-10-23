@@ -9,34 +9,26 @@ define([
     return Backbone.View.extend({
 
         template: tmpl,
-        
-        el: $('body'),
 
-        events: {
-            "click" : "alert"
-        },
-
-        alert: function() {
-            
-        },
+        el: 'div#login',
 
         initialize: function () {
 
         },
 
         render: function () {
-            $.ajax({
-                    type: "POST",
-                    url: "/islogged",
-                    data: null,
-                    success: function(){
-                       window.location.replace("/#");
-                    },
-            });
+            // $.ajax({
+            //         type: "POST",
+            //         url: "/islogged",
+            //         data: null,
+            //         success: function(){
+            //            window.location.replace("/#");
+            //         },
+            // });
 
-            $('#page').html(loginTmpl());
+            this.$el.html(loginTmpl());
 
-           
+
             $("#idForm").on("submit", function(event) {
                 event.preventDefault();
                 $("#idForm").removeClass('animated shake');
@@ -75,13 +67,13 @@ define([
                 });
             });
 
-            
+
         },
         show: function () {
-            // TODO
+            this.$el.show();
         },
         hide: function () {
-            // TODO
+            this.$el.hide();
         },
 
     });

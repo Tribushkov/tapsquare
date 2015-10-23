@@ -9,17 +9,18 @@ define([
     return Backbone.View.extend({
 
         template: tmpl,
+        el : 'div#scoreboard',
         initialize: function () {
             // TODO
         },
         render: function () {
-            $('#page').html(scoreboardTmpl());
+            this.$el.html(scoreboardTmpl());
         },
         show: function () {
-            // TODO
+            this.$el.show();
         },
         hide: function () {
-            // TODO
+            this.$el.hide();
         }
 
     });

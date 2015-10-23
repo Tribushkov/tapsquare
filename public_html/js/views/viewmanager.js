@@ -41,12 +41,30 @@ define([
             this.views[this.GAME_VIEW] = new Game();
             this.views[this.SCOREBOARD_VIEW] = new Scoreboard();
             this.views[this.ADMIN_VIEW] = new Admin();
+            this.preRender();
+        },
+
+        preRender: function(){
+          for (var key in this.views) {
+            try {
+              this.views[key].render();
+              this.views[key].hide();
+            } catch (err){
+              console.log(err);
+            }
+          }
         },
 
         displayView: function(viewKey) {
-            var view = this.views[viewKey];
-            view.render();
-            this.currentView = view;           
+          currentView = this.views[viewKey];
+              for (var key in this.views) {
+                try {
+                  this.views[key].hide();
+                } catch (err){
+                  console.log(err);
+                }
+              }
+           currentView.show();
         },
 
     });

@@ -9,21 +9,24 @@ define([
     return Backbone.View.extend({
 
             template: tmpl,
+            el: 'div#register',
 
             initialize: function() {
                 // TODO
             },
             render: function() {
-                $.ajax({
-                    type: "POST",
-                    url: "/islogged",
-                    data: null,
-                    success: function() {
-                        window.location.replace("/#");
-                    },
-                });
+                // $.ajax({
+                //     type: "POST",
+                //     url: "/islogged",
+                //     data: null,
+                //     success: function() {
+                //         window.location.replace("/#");
+                //     },
+                // });
 
-                $('#page').html(registerTmpl());
+                this.$el.html(registerTmpl());
+
+                
                 $("#registerForm").on("submit", function(event) {
                         event.preventDefault();
 
@@ -60,10 +63,10 @@ define([
                 });
         },
         show: function() {
-            // TODO
+            this.$el.show();
         },
         hide: function() {
-            // TODO
+            this.$el.hide();
         }
 
     });

@@ -9,13 +9,14 @@ define([
     return Backbone.View.extend({
 
         template: tmpl,
+        el: 'div#admin',
 
         initialize: function() {
 
         },
 
         render: function() {
-            $('#page').html(adminTmpl());
+            this.$el.html(adminTmpl());
             $.ajax({
                 type: "GET",
                 url: "/adminpage",
@@ -59,11 +60,11 @@ define([
         },
 
         show: function() {
-
+            this.$el.show();
         },
 
         hide: function() {
-
+            this.$el.hide();
         }
 
     });
