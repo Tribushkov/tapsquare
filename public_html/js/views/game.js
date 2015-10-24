@@ -25,6 +25,16 @@ define([
         },
         show: function () {
             this.$el.show();
+
+            $.ajax({
+                    type: "POST",
+                    url: "/gamewaiting",
+                    data: null,
+                    success: function(){
+                       alert("ZAPROS OTPRAVIL I POLUCHIL OTVET 200 OK")
+                    },
+            });
+
         },
         hide: function () {
             this.$el.hide();
