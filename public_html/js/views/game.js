@@ -26,14 +26,27 @@ define([
         show: function () {
             this.$el.show();
 
-            $.ajax({
-                    type: "POST",
-                    url: "/gamewaiting",
-                    data: null,
-                    success: function(){
-                       alert("ZAPROS OTPRAVIL I POLUCHIL OTVET 200 OK")
-                    },
-            });
+            // $.ajax({
+            //         type: "POST",
+            //         url: "/gamewaiting",
+            //         data: null,
+            //         success: function(){
+            //            alert("ZAPROS OTPRAVIL I POLUCHIL OTVET 200 OK")
+            //         },
+            // });
+
+            var socket = new WebSocket("ws://localhost:1488/game");
+              // отправить сообщение из формы publish
+
+              // обработчик входящих сообщений
+              socket.onopen = function(e){
+                alert("СОЕДИНЕНИЕ УСТАНОВЛЕНО");
+              }
+              socket.send("1 4 2");
+              socket.onmessage = function(event) {
+                var incomingMessage = event.data;
+                alert(incomingMessage);
+              };
 
         },
         hide: function () {
