@@ -15,18 +15,11 @@ define([
                 // TODO
             },
             render: function() {
-                // $.ajax({
-                //     type: "POST",
-                //     url: "/islogged",
-                //     data: null,
-                //     success: function() {
-                //         window.location.replace("/#");
-                //     },
-                // });
+
 
                 this.$el.html(registerTmpl());
 
-                
+
                 $("#registerForm").on("submit", function(event) {
                         event.preventDefault();
 
@@ -64,6 +57,14 @@ define([
         },
         show: function() {
             this.$el.show();
+            $.ajax({
+                type: "POST",
+                url: "/islogged",
+                data: null,
+                success: function() {
+                    window.location.replace("/#");
+                },
+            });
         },
         hide: function() {
             this.$el.hide();
