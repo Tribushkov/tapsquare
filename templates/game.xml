@@ -4,7 +4,9 @@
         <div class="main__gamescene">                  
         </div>
     </div>
-                
+        <div class="row">
+            <h1 id="time"></h1>
+        </div>  
         <div class="row">
         <div class="col-md-offset-10 col-md-2">
            <a class="btn btn-success" href="#" style="margin:20%;">Back</a> 

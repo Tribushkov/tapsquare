@@ -58,14 +58,20 @@ define([
             socket.onmessage = function(event) {
                 var incomingMessage = event.data;
                 var obj = JSON && JSON.parse(incomingMessage) || $.parseJSON(incomingMessage);
-                if (obj.square){
+                
+                if (obj.square) {
                   $("#" + obj.square).removeClass('hover');
                   $("#" + obj.square).addClass('hover');
                   $("#" + obj.square).css("background-color", obj.color);
                 }
-                if (obj.status = "finish"){
+
+                if (obj.status == "finish") {
                   alert(obj.win);
-                  $("#" + obj.square).css("background-color", obj.color);
+                  // $("#" + obj.square).css("background-color", obj.color);
+                }
+
+                if (obj.time) {
+                    $("#time").html(obj.time);
                 }
             };
 
