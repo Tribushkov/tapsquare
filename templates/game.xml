@@ -1,61 +1,8 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="col-md-offset-2 col-md-8">
     <div class="row">
-        <div class="main__gamescene">
-                    <div class="container-fluid">
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                    <div class="game-cell"></div>
-                        
-                    </div>   
-            </div>
+        <div class="main__gamescene">                  
+        </div>
     </div>
                 
         <div class="row">

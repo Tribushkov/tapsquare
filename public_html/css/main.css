@@ -47,11 +47,16 @@
 	border-radius: 40%;
 	color: #607D8B;
 
-	-webkit-transition:0.8s ease;
-    -moz-transition:0.8s ease;
-    -ms-transition:0.8s ease;
-    -o-transition:0.8s ease;
-    transition:0.8s ease;
+	 transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-360deg);
+    -o-transform: rotateY(-360deg);
+    -moz-transform: rotateY(-360deg);
+
+    -webkit-transition:0.2s ;
+    -moz-transition:0.2s ease;
+    -ms-transition:0.2s ease;
+    -o-transition:0.2s ease;
+    transition:0.2s ease;
 }
 
 
