@@ -19,7 +19,7 @@ define([
         myManager: null,
 
         initialize: function () {
-            this.myManager = new ViewManager(); 
+            this.myManager = new ViewManager();
         },
 
         showView: function(view) {
