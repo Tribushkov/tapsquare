@@ -54,15 +54,10 @@ define([
                 var obj = JSON.parse(incomingMessage);
 
 
-                if (obj.time){
-                  $("#time").html(Math.floor((20000-obj.time)/1000));
-                }
-
-
-
                 if (obj.square){
                   $("#"+ obj.square).toggleClass("hover").css("background-color",obj.color);
                 }
+
                 if (obj.score){
                   if (obj.name == "me"){
                     $("#myscore").html(obj.score);
