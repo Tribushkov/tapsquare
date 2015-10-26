@@ -1,17 +1,27 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="col-md-offset-2 col-md-8">
-    <div class="row">
-        <div class="main__gamescene">                  
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div style="text-align:center;" class="custom_button1" id="time"></div>
+    </div>
+    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2">
+      <div class="row">
+        <h1 id="enemyscore" class="score">0</h1>
+        <p style="text-align:center;">Enemy score</p>
+      </div>
+    </div>
+    <div class="col-md-8 col-xs-8 col-sm-8 col-lg-8 ">
+        <div class="main__gamescene" >
         </div>
     </div>
+    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2">
         <div class="row">
-            <h1 id="time"></h1>
-        </div>  
-        <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-           <a class="btn btn-success" href="#" style="margin:20%;">Back</a> 
-        </div>
-                            
+          <h1 id="myscore" class="score">0</h1>
+          <p style="text-align:center;">My score</p>
         </div>
     </div>
+  </div>
+</div>
+
 </fest:template>

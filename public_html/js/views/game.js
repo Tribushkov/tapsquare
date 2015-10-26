@@ -26,62 +26,64 @@ define([
 
         render: function () {
             this.$el.html(gameTmpl());
-            for (var i = 0; i < 5; i++) {
-                for (var j = 0; j < 5; j++) {
-                    $('.main__gamescene').append('<div class="game-cell" id=\"' + i + '_' + j +'\"></div>');
-                }
-            }
+
 
         },
         show: function () {
             this.$el.show();
 
-            $.ajax({
-                    type: "POST",
-                    url: "/game",
-                    data: null,
-                    success: function(){
-                       // alert("ZAPROS OTPRAVIL I POLUCHIL OTVET 200 OK")
-                    },
-            });
-
             var socket = new WebSocket("ws://localhost:8080/game");
 
-            socket.onopen = function(e){
-                // alert("СОЕДИНЕНИЕ");
-            };
+            for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 6; j++) {
+                    $('.main__gamescene').append('<div class="col-md-2 col-xs-2 col-sm-2 game-cell" id=\"' + i + '_' + j +'\"></div>');
+                }
+            }
+
+            socket.onopen = function(e){ };
 
             socket.onclose = function(e){
                  alert("FINISHED CONNECTION");
             };
 
             socket.onmessage = function(event) {
+
                 var incomingMessage = event.data;
-                var obj = JSON && JSON.parse(incomingMessage) || $.parseJSON(incomingMessage);
-                
-                if (obj.square) {
-                  $("#" + obj.square).removeClass('hover');
-                  $("#" + obj.square).addClass('hover');
-                  $("#" + obj.square).css("background-color", obj.color);
+
+                // var obj = JSON && JSON.parse(incomingMessage) || $.parseJSON(incomingMessage);
+                var obj = JSON.parse(incomingMessage);
+
+
+                if (obj.time){
+                  $("#time").html(Math.floor((20000-obj.time)/1000));
                 }
 
-                if (obj.status == "finish") {
-                  alert(obj.win);
-                  // $("#" + obj.square).css("background-color", obj.color);
+
+
+                if (obj.square){
+                  $("#"+ obj.square).toggleClass("hover").css("background-color",obj.color);
+                }
+                if (obj.score){
+                  if (obj.name == "me"){
+                    $("#myscore").html(obj.score);
+                  }
+                  if (obj.name == "enemy"){
+                    $("#enemyscore").html(obj.score);
+                  }
                 }
 
-                if (obj.time) {
-                    $("#time").html(obj.time);
+                if (obj.status == "finish"){
+                  if (obj.win){
+                    $('.main__gamescene').html('<h1>YOU WIN!;)</h1>');
+                  } else {
+                    $('.main__gamescene').html('<h1>YOU LOOSE!!!KEK</h1>');
+                  }
+                  socket.close();
                 }
+
             };
 
             $(".game-cell").click(function() {
-                // alert( $(this).attr('id') );
-                socket.send($(this).attr('id'));
-            });
-
-            $(".game-cell hover").click(function() {
-                // alert( $(this).attr('id') );
                 socket.send($(this).attr('id'));
             });
 

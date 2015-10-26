@@ -28,13 +28,13 @@ define([
                   url: "/islogged",
                   data: null,
                   success: function(){
-                     $('#logButton').html('<a class="btn btn-default" id="logoutButton">Log out</a>')
+                     $('#logButton').html('<a class="custom_button" id="logoutButton">Log out</a>')
                      $('#logoutButton').click(function() {
                           $.ajax({
                               type: "POST",
                               url: "/logout",
                               success: function() {
-                                  $('#logButton').html('<a class="btn btn-default" href="#login">Log in</a>')
+                                  $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
                               }
                           });
                      });
@@ -42,7 +42,7 @@ define([
 
                   statusCode: {
                       403: function() {
-                          $('#logButton').html('<a class="btn btn-default" href="#login">Log in</a>')
+                          $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
                       }
                   }
 

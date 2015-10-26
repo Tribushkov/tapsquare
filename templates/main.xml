@@ -1,19 +1,13 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="col-md-offset-4 col-md-4">
-        <div class="panel panel-default main__panel_mtop">
-            <div class="panel-body">
-                <h1 style="text-align: center">TapSquare</h1>
-                <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 6%">
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-default" href="/#score">Scoreboard</a>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-primary" href="/#game">Start game</a>
-                    </div>
-                    <div class="btn-group" role="group" id="logButton">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-offset-4 col-md-4" id="kek">
+      <div class="row custom_menu_row">
+                  <a class="custom_button " href="/#score">Scoreboard</a>
+      </div>
+      <div class="row custom_menu_row">
+                  <a class="custom_button " href="/#game">PLAY</a>
+      </div>
+      <div class="row custom_menu_row">
+                  <div id="logButton"></div>
+      </div>
     </div>
 </fest:template>

@@ -1,9 +1,5 @@
 /*Отступ сверху у всех экранов*/
 
-body{
-  background-color: purple;
-}
-
 .main__panel_mtop {
     margin-top: 15%;
 }
@@ -21,41 +17,102 @@ body{
 
 .main__gamescene {
     line-height: 440pt;
-    text-align: center;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .game-cell{
+  padding-top: 15%;
+  min-width: 10%;
+  min-height: 10%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  line-height: 10em;
+  background-color: #FFFFFF;
 
-  background-color: white;
-	float: left;
-	margin-left: 1%;
-	margin-top: 1%;
-	min-height: 80px;
-	min-width: 80px;
+  transform: rotateY(180deg);
+ -webkit-transform: rotateY(180deg);
+ -o-transform: rotateY(180deg);
+ -moz-transform: rotateY(180deg);
 
-  -webkit-transition:0.2s ease;
-  -moz-transition:0.2s ease;
-  -ms-transition:0.2s ease;
-  -o-transition: 0.2s ease;
-  transition:0.2s ease;
+ -webkit-transition:0.4s ;
+ -moz-transition:0.4s ease;
+ -ms-transition:0.4s ease;
+ -o-transition:0.4s ease;
+ transition:0.4s ease;
 }
 
 .hover{
 
+	   transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
 
-	 transform: rotateY(-360deg);
-    -webkit-transform: rotateY(-360deg);
-    -o-transform: rotateY(-360deg);
-    -moz-transform: rotateY(-360deg);
-
-    -webkit-transition:0.2s ;
-    -moz-transition:0.2s ease;
-    -ms-transition:0.2s ease;
-    -o-transition:0.2s ease;
-    transition:0.2s ease;
+    -webkit-transition:0.4s ;
+    -moz-transition:0.4s ease;
+    -ms-transition:0.4s ease;
+    -o-transition:0.4s ease;
+    transition:0.4s ease;
 }
 
+.score{
+  text-align: center;
+  padding-top: 10%;
+  font-size: 400px;
+  vertical-align: center;
+}
+
+.custom_button{
+  background-color: #00BCD4;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 3%;
+  text-align: center;
+  width: 100%;
+  font-family: roboto;
+  font-weight: 600;
+  font-size: 500%;
+  min-width: 100%;
+  display: block;
+  margin-top: 3%;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+  text-shadow: 8px 8px 12px rgba(0,0,0,0.2);
+
+}
+
+.custom_button1{
+  background-color: #00BCD4;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 1%;
+  text-align: center;
+  width: 100%;
+  font-family: roboto;
+  font-weight: 600;
+  font-size: 500%;
+  min-width: 100%;
+  display: block;
+  margin-top: 3%;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+  text-shadow: 8px 8px 12px rgba(0,0,0,0.2);
+
+}
+
+.custom_button:hover{
+  box-shadow: 8px 8px 12px rgba(0,0,0,0.4);
+  text-decoration-style: none;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-shadow: 8px 8px 12px rgba(0,0,0,0.4);
+  -webkit-transition:0.4s ease ;
+  -moz-transition:0.4s ease;
+  -ms-transition:0.4s ease;
+  -o-transition:0.4s ease;
+  transition:0.4s ease;
+}
+
+#kek{
+    padding-top: 10%;
+}
 
 .animated {
     -webkit-animation-duration: 0.1s;
@@ -82,4 +139,13 @@ body{
 .shake {
     -webkit-animation-name: shake;
     animation-name: shake;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(font.ttf);
+}
+
+.score{
+  font-size: 10em;
 }
