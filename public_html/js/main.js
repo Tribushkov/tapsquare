@@ -19,10 +19,23 @@ require.config({
 
 define([
     'backbone',
-    'router'
+    'router',
+	'models/user'
 ], function(
     Backbone,
-    router
+    router,
+	User
 ) {
+	myUser = new User();
+	
+	$.ajax({
+		type: "POST",
+		url: "/islogged",
+		data: null,
+		success: function() {
+			myUser.set({ isLogged:true });
+		},
+	});
+
     Backbone.history.start();
 });

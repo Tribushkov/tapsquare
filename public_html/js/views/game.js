@@ -1,94 +1,105 @@
 define([
-    'backbone',
-    'tmpl/game'
+	'backbone',
+	'tmpl/game'
 ], function(
-    Backbone,
-    tmpl
-){
+	Backbone,
+	tmpl
+) {
 
-    return Backbone.View.extend({
+	return Backbone.View.extend({
 
-        template: tmpl,
-        el: 'div#game',
-        initialize: function () {
-            // TODO
-        },
+		template: tmpl,
+		el: 'div#game',
+		name: "game",
 
-        events: {
+		initialize: function() {
+			this.render();
+		},
 
-            'click .game_cell': 'burp'
+		events: {
 
-        },
+		},
 
-        burp: function(){
+		render: function() {
+			this.$el.html(gameTmpl());
+			this.$el.hide();
+		},
+		show: function() {
 
-        },
+			this.trigger('show',{'name' : this.name});
 
-        render: function () {
-            this.$el.html(gameTmpl());
+			if (!myUser.get('isLogged')) {
+				Backbone.history.navigate("/#", true);
+			} else {
+				this.$el.show();
 
+				var socket = new WebSocket("ws://127.0.0.1:28089/game");
 
-        },
-        show: function () {
-            this.$el.show();
+				for (var i = 0; i < 6; i++) {
+					for (var j = 0; j < 6; j++) {
+						$('.main__gamescene').append('<div class="col-md-2 col-xs-2 col-sm-2 game-cell" id=\"' + i + '_' + j + '\"></div>');
+					}
+				}
 
-            var socket = new WebSocket("ws://localhost:8080/game");
+				socket.onopen = function(e) {
+				};
 
-            for (var i = 0; i < 6; i++) {
-                for (var j = 0; j < 6; j++) {
-                    $('.main__gamescene').append('<div class="col-md-2 col-xs-2 col-sm-2 game-cell" id=\"' + i + '_' + j +'\"></div>');
-                }
-            }
+				socket.onclose = function(e) {
+				};
 
-            socket.onopen = function(e){ };
+				socket.onmessage = function(event) {
 
-            socket.onclose = function(e){
-                 alert("FINISHED CONNECTION");
-            };
+					var incomingMessage = event.data;
 
-            socket.onmessage = function(event) {
+					var obj = JSON.parse(incomingMessage);
 
-                var incomingMessage = event.data;
-
-                // var obj = JSON && JSON.parse(incomingMessage) || $.parseJSON(incomingMessage);
-                var obj = JSON.parse(incomingMessage);
-
-
-                if (obj.square){
-                  $("#"+ obj.square).toggleClass("hover").css("background-color",obj.color);
-                }
-
-                if (obj.score){
-                  if (obj.name == "me"){
-                    $("#myscore").html(obj.score);
-                  }
-                  if (obj.name == "enemy"){
-                    $("#enemyscore").html(obj.score);
-                  }
-                }
-
-                if (obj.status == "finish"){
-                  if (obj.win){
-                    $('.main__gamescene').html('<h1>YOU WIN!;)</h1>');
-                  } else {
-                    $('.main__gamescene').html('<h1>YOU LOOSE!!!KEK</h1>');
-                  }
-                  socket.close();
-                }
-
-            };
-
-            $(".game-cell").click(function() {
-                socket.send($(this).attr('id'));
-            });
-
-        },
+					if (obj.time) {
+						$("#time").html(Math.floor((60000 - obj.time) / 1000));
+					}
 
 
-        hide: function () {
-            this.$el.hide();
-        },
+					if (obj.square) {
+						$("#" + obj.square).toggleClass("hover").css("background-color", obj.color);
+					}
 
-    });
+					if (obj.score) {
+						if (obj.name == "me") {
+							$("#myscore").html(obj.score);
+						}
+						if (obj.name == "enemy") {
+							$("#enemyscore").html(obj.score);
+						}
+					}
+
+					if (obj.status == "finish") {
+						if (obj.win == "0") {
+							$('#time').html('DRAW');
+						}
+						if (obj.win == "1") {
+							$('#time').html('YOU WIN');
+						}
+						if (obj.win == "2") {
+							$('#time').html('YOU LOOSE');
+						}
+						// socket.close(); //WTF I DO HERE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FUCK
+					}
+
+				};
+rt
+
+				$(".game-cell").click(function() {
+						socket.send($(this).attr('id'));
+				});
+
+			}
+
+		},
+
+
+		hide: function() {
+			this.$el.hide();
+		},
+
+	});
 
 });

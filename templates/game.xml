@@ -3,19 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div style="text-align:center;" class="custom_button1" id="time"></div>
+      <div style="text-align:center;" class="custom_button1" id="time">Please wait</div>
     </div>
-    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2">
+    <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3">
       <div class="row">
         <h1 id="enemyscore" class="score">0</h1>
         <p style="text-align:center;">Enemy score</p>
       </div>
     </div>
-    <div class="col-md-8 col-xs-8 col-sm-8 col-lg-8 ">
+    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 ">
         <div class="main__gamescene" >
         </div>
     </div>
-    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2">
+    <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3">
         <div class="row">
           <h1 id="myscore" class="score">0</h1>
           <p style="text-align:center;">My score</p>

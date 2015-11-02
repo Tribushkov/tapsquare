@@ -4,14 +4,14 @@
     <div class="col-md-offset-4 col-md-4">
         <div class="panel panel-default main__panel_mtop">
             <div class="panel-body">
-                <form id="idForm" method="POST">
-                    <div class="form-group" id="loginGroup">
+                <form id="idForm" remote="none">
+                    <div class="form-group" id="loginGroup1">
                         <div id="loginControl"></div>
-                        <input type="email" name="email" class="form-control" id="email1" placeholder="Email"></input>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Email"></input>
                     </div>
                     <div class="form-group" id="passwordGroup">
                         <div id="passwordControl"></div>
-                        <input type="password" class="form-control" name="password" id="password1" placeholder="Password"></input>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password"></input>
                     </div>
                     <div class="row">
                         <div class="col-md-1">

@@ -10,18 +10,19 @@ define([
 
         template: tmpl,
         el : 'div#main',
+		name: "main",
 
         initialize: function() {
-
+			this.render();
         },
 
         render: function() {
             this.$el.html(mainTmpl());
-
-
+			this.$el.hide();
         },
 
         show: function() {
+		  this.trigger('show',{'name' : this.name});
           this.$el.show();
           $.ajax({
                   type: "POST",
@@ -34,6 +35,7 @@ define([
                               type: "POST",
                               url: "/logout",
                               success: function() {
+								  myUser.set({ isLogged:false });
                                   $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
                               }
                           });
@@ -42,6 +44,7 @@ define([
 
                   statusCode: {
                       403: function() {
+						  myUser.set({ isLogged:false });
                           $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
                       }
                   }

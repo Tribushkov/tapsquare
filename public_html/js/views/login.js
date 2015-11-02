@@ -1,82 +1,68 @@
 define([
-    'backbone',
-    'tmpl/login'
+	'backbone',
+	'tmpl/login',
+	'models/auth'
 ], function(
-    Backbone,
-    tmpl
-){
+	Backbone,
+	tmpl,
+	model
+) {
 
-    return Backbone.View.extend({
+	return Backbone.View.extend({
 
-        template: tmpl,
+		template: tmpl,
+		backbone: Backbone,
+		el: 'div#login',
+		model: new model(),
+		form: $("form"),
+		name: "login",
 
-        el: 'div#login',
+		initialize: function() {
+			this.render();
+		},
 
-        initialize: function () {
+		events: {
+			"submit form": "login"
+		},
 
-        },
-
-        render: function () {
-
-
-            this.$el.html(loginTmpl());
-
-
-            $("#idForm").on("submit", function(event) {
-                event.preventDefault();
-                $("#idForm").removeClass('animated shake');
-                $.ajax({
-                    type: "POST",
-                    url: "/signin",
-                    data: $(this).serialize(),
-                    success: function(){
-                        window.location.replace("/#");
-                    },
-                    statusCode: {
-                      403: function(data) {
-                            $("#passwordControl").show();
-                            $("#loginControl").show();
-                            $("#loginGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
-                            $("#passwordGroup").removeClass( "form-group has-error" ).addClass( "form-group" );
-
-                            $("#idForm").addClass('animated shake');
-
-                            switch(data.getResponseHeader('Error')){
-                                case '0':
-                                    $("#passwordControl").html('<label class="control-label" for="password1" id="passwordLog">Incorrect password</label>')
-                                    $("#passwordGroup").removeClass( "form-group" ).addClass( "form-group has-error" );
-                                    $("#loginControl").hide();
-                                    break
-                                case '1':
-                                    $("#loginControl").html('<label class="control-label" for="login1" id="passwordLog">User does not exist</label>')
-                                    $("#loginGroup").removeClass( "form-group" ).addClass( "form-group has-error" );
-                                    $("#passwordControl").hide();
-                                    break
-                                default:
-                                    break
-                            }
-                        }
-                    },
-                });
-            });
+		login: function(event) {
+			event.preventDefault();
+			this.garbageCleaner();
+			var data = $("#idForm").serialize();
+			model.login(data);
+		},
 
 
-        },
-        show: function () {
-            this.$el.show();
-            $.ajax({
-                    type: "POST",
-                    url: "/islogged",
-                    data: null,
-                    success: function(){
-                       window.location.replace("/#");
-                    },
-            });
-        },
-        hide: function () {
-            this.$el.hide();
-        },
 
-    });
+		render: function() {
+			this.$el.html(loginTmpl());
+			this.$el.hide();
+		},
+
+
+		show: function() {
+			this.trigger('show',{'name' : this.name});
+
+			if (myUser.get('isLogged')){
+				backbone.history.navigate("/#", true);
+			} else {
+
+			this.$el.show();
+			this.garbageCleaner();
+		}
+		},
+
+		hide: function() {
+			this.$el.hide();
+		},
+
+		garbageCleaner: function() {
+			$("#passwordControl").html('');
+			$("#loginControl").html('');
+			$("#passwordGroup").removeClass("has-error");
+			$("#loginGroup").removeClass("has-error");
+		},
+
+	});
 
 });

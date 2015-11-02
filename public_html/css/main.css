@@ -1,67 +1,78 @@
 /*Отступ сверху у всех экранов*/
 
 .main__panel_mtop {
-    margin-top: 15%;
+  margin-top: 15%;
+}
+
+body,
+html{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	background-image: url(background.png);
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+	font-family: roboto;
 }
 
 .main__gamepanel_mtop {
-    margin-top: 1%;
+  margin-top: 1%;
 }
 /*Заголовок таблицы результатов*/
 
 .main__header_fsize {
-    text-align: center;
-    font-size: 48pt;
+  text-align: center;
+  font-size: 48pt;
 }
 /*игровая вьюха*/
 
 .main__gamescene {
-    line-height: 440pt;
-    margin-top: 2%;
+  line-height: 440pt;
+  margin-top: 2%;
 }
 
-.game-cell{
+.game-cell {
   padding-top: 15%;
   min-width: 10%;
   min-height: 10%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   line-height: 10em;
   background-color: #FFFFFF;
-
   transform: rotateY(180deg);
- -webkit-transform: rotateY(180deg);
- -o-transform: rotateY(180deg);
- -moz-transform: rotateY(180deg);
-
- -webkit-transition:0.4s ;
- -moz-transition:0.4s ease;
- -ms-transition:0.4s ease;
- -o-transition:0.4s ease;
- transition:0.4s ease;
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s ease;
+  -ms-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
+  opacity: .6;
 }
 
-.hover{
-
-	   transform: rotateY(-180deg);
-    -webkit-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-
-    -webkit-transition:0.4s ;
-    -moz-transition:0.4s ease;
-    -ms-transition:0.4s ease;
-    -o-transition:0.4s ease;
-    transition:0.4s ease;
+.hover {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s ease;
+  -ms-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
-.score{
+.score {
   text-align: center;
   padding-top: 10%;
   font-size: 400px;
   vertical-align: center;
 }
 
-.custom_button{
+.custom_button {
   background-color: #00BCD4;
   text-align: center;
   color: #FFFFFF;
@@ -76,10 +87,9 @@
   margin-top: 3%;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
   text-shadow: 8px 8px 12px rgba(0,0,0,0.2);
-
 }
 
-.custom_button1{
+.custom_button1 {
   background-color: #00BCD4;
   text-align: center;
   color: #FFFFFF;
@@ -94,58 +104,72 @@
   margin-top: 3%;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
   text-shadow: 8px 8px 12px rgba(0,0,0,0.2);
-
 }
 
-.custom_button:hover{
-  box-shadow: 8px 8px 12px rgba(0,0,0,0.4);
+.custom_button:hover {
+  box-shadow: 8px 8px 12px rgba(0,0,0,0.3);
   text-decoration-style: none;
   text-decoration: none;
   color: #FFFFFF;
-  text-shadow: 8px 8px 12px rgba(0,0,0,0.4);
-  -webkit-transition:0.4s ease ;
-  -moz-transition:0.4s ease;
-  -ms-transition:0.4s ease;
-  -o-transition:0.4s ease;
-  transition:0.4s ease;
+  text-shadow: 8px 8px 12px rgba(0,0,0,0.3);
+  -webkit-transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  -ms-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
-#kek{
-    padding-top: 10%;
+#kek {
+  padding-top: 10%;
 }
 
 .animated {
-    -webkit-animation-duration: 0.1s;
-    animation-duration: 0.1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
+  -webkit-animation-duration: 0.1s;
+  animation-duration: 0.1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
 }
 
 @-webkit-keyframes shake {
-    0%, 100% {-webkit-transform: translateX(0);}
-    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-4px);}
-    20%, 40%, 60%, 80% {-webkit-transform: translateX(4px);}
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-4px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(4px);
+  }
 }
 
-
 @keyframes shake {
-    0%, 100% {transform: translateX(0);}
-    10%, 30%, 50%, 70%, 90% {transform: translateX(-4px);}
-    20%, 40%, 60%, 80% {transform: translateX(4px);}
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
 }
 
 .shake {
-    -webkit-animation-name: shake;
-    animation-name: shake;
+  -webkit-animation-name: shake;
+  animation-name: shake;
 }
 
 @font-face {
-    font-family: roboto;
+  font-family: roboto;
     src: url(font.ttf);
 }
 
-.score{
+.score {
   font-size: 10em;
 }

@@ -1,11 +1,40 @@
 define([
     'backbone',
-    'views/viewmanager'
+    'views/viewmanager',
+	'views/scoreboard',
+	'views/game',
+	'views/login',
+	'views/register',
+	'views/admin',
+	'views/main',
 ], function(
     Backbone,
-    ViewManager
+    ViewManager,
+	scoreboardView,
+	gameView,
+	loginView,
+	registerView,
+	adminView,
+	mainView
 ) {
-    console.log("before class Router");
+	manager = new ViewManager();
+
+	var scoreboard = new scoreboardView();
+	var game = new gameView();
+	var login = new loginView();
+	var register = new registerView();
+	var admin = new adminView();
+	var main = new mainView();
+
+	manager.add(scoreboard);
+	manager.add(game);
+	manager.add(login);
+	manager.add(register);
+	manager.add(admin);
+	manager.add(main);
+
+	var views = manager.getViews();
+
     var Router = Backbone.Router.extend({
         routes: {
             'score': 'scoreAction',
@@ -16,42 +45,30 @@ define([
             '': 'defaultActions'
         },
 
-        myManager: null,
-
-        initialize: function () {
-            this.myManager = new ViewManager();
-        },
-
-        showView: function(view) {
-            this.myManager.displayView(view);
-        },
-
         defaultActions: function() {
-            this.showView(this.myManager.MAIN_VIEW);
+            main.show();
         },
 
         scoreAction: function() {
-            this.showView(this.myManager.SCOREBOARD_VIEW);
+            scoreboard.show();
         },
 
         gameAction: function() {
-            this.showView(this.myManager.GAME_VIEW);
+            game.show();
         },
 
         loginAction: function() {
-            this.showView(this.myManager.LOGIN_VIEW);
+            login.show();
         },
 
         registerAction: function() {
-            this.showView(this.myManager.REGISTER_VIEW);
+            register.show();
         },
 
         adminAction: function() {
-            this.showView(this.myManager.ADMIN_VIEW);
+            admin.show();
         }
 
-
     });
-    console.log("after class Router");
     return new Router();
 });

@@ -10,6 +10,7 @@ define([
 
         template: tmpl,
         el: 'div#admin',
+		name: "admin",
 
         initialize: function() {
 
@@ -60,6 +61,7 @@ define([
         },
 
         show: function() {
+			this.trigger('show',{'name' : this.name})
             this.$el.show();
         },
 
