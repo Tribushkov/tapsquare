@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tapsquare
 
 - Бородин Александр: https://github.com/SoBeard
@@ -20,4 +20,4 @@ $ grunt
 =======
 # frontend'ер в ветке fixcoding
 код не очень, как успеваю
->>>>>>> c01de7dfc456edb197760a5d17fc32848d58b882
+
