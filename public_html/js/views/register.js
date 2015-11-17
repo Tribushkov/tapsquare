@@ -82,13 +82,12 @@ define([
 
 		show: function() {
 			this.trigger('show',{'name' : this.name});
-
 			if (myUser.get('isLogged')){
 				backbone.history.navigate("/#", true);
 			} else {
 				this.$el.show();
 			}
-
+		
 		},
 
 		hide: function() {
