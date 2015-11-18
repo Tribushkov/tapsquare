@@ -1,61 +1,52 @@
 define([
-    'backbone',
-    'tmpl/main'
+  'backbone',
+  'tmpl/main',
+  'models/user'
 ], function(
-    Backbone,
-    tmpl
+  Backbone,
+  tmpl,
+  User
 ) {
 
-    return Backbone.View.extend({
+  return Backbone.View.extend({
 
-        template: tmpl,
-        el : 'div#main',
-		name: "main",
+    template: tmpl,
+    el: 'div#main',
+    name: "main",
+    user: User,
 
-        initialize: function() {
-			this.render();
-        },
+    initialize: function() {
+      this.render();
+      this.user.on('change', this.checkLogin.bind(this));
+    },
 
-        render: function() {
-            this.$el.html(mainTmpl());
-			this.$el.hide();
-        },
+    events: {
+      "click #logoutButton": "toLogout",
+    },
 
-        show: function() {
-		  this.trigger('show',{'name' : this.name});
-          this.$el.show();
-          $.ajax({
-                  type: "POST",
-                  url: "/islogged",
-                  data: null,
-                  success: function(){
-                     $('#logButton').html('<a class="custom_button" id="logoutButton">Log out</a>')
-                     $('#logoutButton').click(function() {
-                          $.ajax({
-                              type: "POST",
-                              url: "/logout",
-                              success: function() {
-								  myUser.set({ isLogged:false });
-                                  $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
-                              }
-                          });
-                     });
-                  },
+    checkLogin: function() {
+      if (this.user.hasChanged('logged')) {
+        this.user.fetch();
+        this.render();
+      }
+    },
 
-                  statusCode: {
-                      403: function() {
-						  myUser.set({ isLogged:false });
-                          $('#logButton').html('<a class="custom_button" href="#login">Log in</a>')
-                      }
-                  }
+    render: function() {
+      this.$el.html(mainTmpl(this.user.toJSON()));
+      this.hide();
+    },
 
-              });
-        },
+    show: function() {
+      this.trigger('show', {
+        'name': this.name
+      });
+      this.$el.show();
+    },
 
-        hide: function() {
-          this.$el.hide();
-        }
+    hide: function() {
+      this.$el.hide();
+    }
 
-    });
+  });
 
 });

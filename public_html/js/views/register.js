@@ -1,20 +1,20 @@
 define([
 	'backbone',
 	'tmpl/register',
-	'models/auth'
+	'models/user'
 ], function(
 	Backbone,
 	tmpl,
-	model
+	User
 ) {
 
 	return Backbone.View.extend({
 
 		template: tmpl,
 		el: 'div#register',
-		model: new model(),
 		form: $("form"),
 		name: "register",
+		user: User,
 
 		initialize: function() {
 			this.render();
@@ -56,7 +56,7 @@ define([
 			}
 			if (ready){
 				var data = $("#registerForm").serialize();
-				model.register(data);
+				this.user.register(data);
 			} else {
 				$("#registerForm").addClass('animated shake');
 			}
@@ -81,13 +81,12 @@ define([
 		},
 
 		show: function() {
-			this.trigger('show',{'name' : this.name});
-			if (myUser.get('isLogged')){
+			if (this.user.isLogged()){
 				backbone.history.navigate("/#", true);
 			} else {
+				this.trigger('show',{'name' : this.name});
 				this.$el.show();
 			}
-		
 		},
 
 		hide: function() {

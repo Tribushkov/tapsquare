@@ -1,56 +1,53 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="col-md-offset-4 col-md-4">
-        <div class="panel panel-info main__panel_mtop">
-            <div class="panel-heading">
-                <div class="main__header_fsize">Score board</div>
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>22626</td>
-                    </tr>
-                    <tr>
-                        <td>Jack</td>
-                        <td>21232</td>
-                    </tr>
-                    <tr>
-                        <td>Polly</td>
-                        <td>19322</td>
-                    </tr>
-                    <tr>
-                        <td>Iton</td>
-                        <td>14219</td>
-                    </tr>
-                    <tr>
-                        <td>Robert</td>
-                        <td>13054</td>
-                    </tr>
-                    <tr>
-                        <td>Alexander</td>
-                        <td>11029</td>
-                    </tr>
-                    <tr>
-                        <td>Dock</td>
-                        <td>8923</td>
-                    </tr>
-                    <tr>
-                        <td>Shone</td>
-                        <td>4121</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-10 col-md-2" id="js-back">
-                <a class="btn btn-success" href="#">Back</a>
-            </div>
-        </div>
+  <div class="col-md-offset-4 col-md-4">
+    <div class="row">
     </div>
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>22626</td>
+        </tr>
+        <tr>
+          <td>Jack</td>
+          <td>21232</td>
+        </tr>
+        <tr>
+          <td>Polly</td>
+          <td>19322</td>
+        </tr>
+        <tr>
+          <td>Iton</td>
+          <td>14219</td>
+        </tr>
+        <tr>
+          <td>Robert</td>
+          <td>13054</td>
+        </tr>
+        <tr>
+          <td>Alexander</td>
+          <td>11029</td>
+        </tr>
+        <tr>
+          <td>Dock</td>
+          <td>8923</td>
+        </tr>
+        <tr>
+          <td>Shone</td>
+          <td>4121</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row"> <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#">
+      Back
+    </a> </div>
+
+  </div>
 </fest:template>

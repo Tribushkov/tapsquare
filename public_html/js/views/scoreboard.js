@@ -1,32 +1,34 @@
 define([
-    'backbone',
-    'tmpl/scoreboard'
+  'backbone',
+  'tmpl/scoreboard'
 ], function(
-    Backbone,
-    tmpl
-){
+  Backbone,
+  tmpl
+) {
 
-    return Backbone.View.extend({
+  return Backbone.View.extend({
 
-        template: tmpl,
-        el : 'div#scoreboard',
-		name: "scoreboard",
+    template: tmpl,
+    el: 'div#scoreboard',
+    name: "scoreboard",
 
-        initialize: function () {
-            this.render();
-        },
-        render: function () {
-            this.$el.html(scoreboardTmpl());
-			this.$el.hide();
-        },
-        show: function () {
-			this.trigger('show',{'name' : this.name});
-            this.$el.show();
-        },
-        hide: function () {
-            this.$el.hide();
-        }
+    initialize: function() {
+      this.render();
+    },
+    render: function() {
+      this.$el.html(scoreboardTmpl());
+      this.$el.hide();
+    },
+    show: function() {
+      this.trigger('show', {
+        'name': this.name
+      });
+      this.$el.show();
+    },
+    hide: function() {
+      this.$el.hide();
+    }
 
-    });
+  });
 
 });
