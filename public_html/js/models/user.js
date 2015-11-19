@@ -1,85 +1,94 @@
 define([
-    'backbone'
+  'backbone'
 ], function(
-    Backbone
-){
-    var Model = Backbone.Model.extend({
+  Backbone
+) {
+  var Model = Backbone.Model.extend({
 
     backbone: Backbone,
 
     initialize: function() {
-      this.set({'logged' : false});
-		},
+      this.set({
+        'logged': false,
+        'name': '',
+        'email': '',
+        'password': '',
+        'ValidationErrors': {}
+      });
+    },
 
-    isLogged: function(){
-        return !!this.get("logged");
+    validate: function(attrs) {
+      console.log(attrs);
     },
 
     fetch: function() {
       var that = this;
       $.ajax({
-              type: "POST",
-              url: "/islogged",
-              data: null,
-              success: function(){
-                that.set({logged: true});
-              },
-              statusCode: {
-                  403: function() {
-                    that.set({ logged:false });
-                  }
-              }
+        type: "POST",
+        url: "/islogged",
+        data: null,
+        success: function() {
+          that.set({
+            "logged": true
           });
+        },
+        statusCode: {
+          403: function() {
+            that.set({
+              "logged": false
+            });
+          }
+        }
+      });
     },
 
     login: function(data1) {
       var that = this;
-			$.ajax({
-				type: "POST",
-				url: "/signin",
-				data: data1,
-				success: function() {
-					that.set({ logged:true });
-				},
-				statusCode: {
-					403: function(data) {
-						switch (data.getResponseHeader('Error')) {
-							case '0':
-							$("#idForm").toggleClass('animated shake');
-							$("#passwordControl").html('<label class="control-label" for="password1" id="passwordLog">Incorrect password</label>')
-							$("#passwordGroup").addClass("has-error");
-								break;
-							case '1':
-							$("#idForm").toggleClass('animated shake');
-							$("#loginControl").html('<label class="control-label" for="login1" id="passwordLog">User does not exist</label>')
-							$("#loginGroup1").addClass("has-error");
-								break;
-							default:
-								break;
-						}
-					}
-				},
-			})
-		},
+      $.ajax({
+        type: "POST",
+        url: "/signin",
+        data: data1
+      }).done(function(data){
+        console.log(data);
+        switch (data.getResponseHeader('Error')) { ///здесь 403 код ответа, в нормальном случае - 200
+          case '0':
+            return "Wrong password"
+            break;
+          case '1':
+            return "User does not exist"
+            break;
+          default:
+            break;
+        }
+      });
+    },
+
+    logout: function() {
+      var that = this;
+      $.ajax({
+        type: "POST",
+        url: "/logout"
+      }).done(function(){
+        that.set({
+          "logged": false
+        });
+      });
+    },
 
 
-		register: function(data1) {
-			$.ajax({
-					type: "POST",
-					url: "/signup",
-					data: data1,
-					success: function(data) {
-					},
-					statusCode: {
-						403: function(data) {
-						$("#emailNotification").html('<label class="control-label" for="password1" id="passwordLog">Sorry, this email is already engaged</label>')
-						$("#emailGroup").addClass("has-error");
-					}
-				}
-			});
-		},
+    register: function(data1) {
+      $.ajax({
+        type: "POST",
+        url: "/signup",
+        data: data1
+      }).done(function(data){
+        //зарегать юзера, присвоить данные из модельки, при приколу зачем хз
+        //в случае 403 сказать, что емайл занят уже, сорри
+      });
 
-    });
+    },
 
-    return new Model;
+  });
+
+  return new Model;
 });

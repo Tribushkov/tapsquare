@@ -81,7 +81,6 @@ define([
 						if (obj.win == "2") {
 							$('#time').html('YOU LOOSE');
 						}
-						// socket.close(); //WTF I DO HERE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FUCK
 					}
 
 				};

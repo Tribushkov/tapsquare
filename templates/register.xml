@@ -1,37 +1,36 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="col-md-offset-4 col-md-4">
-        <div class="panel panel-default main__panel_mtop">
-            <div class="panel-body">
-                <form id="registerForm" remote="none">
-                    <div class="form-group" id="emailGroup">
-                        <div id="emailNotification"></div>
-                        <input type="email" name="email" class="form-control" id="exampleemail" placeholder="Email"></input>
-                    </div>
-                    <div class="form-group" id="loginGroup">
-						<div id="loginNotification"></div>
-                        <input type="text" name="login" class="form-control" id="examplelogin" placeholder="Login"></input>
-                    </div>
-                    <div class="form-group" id="password1Group">
-                        <div id="passwordNotification" ></div>
-                        <input type="password" name="password1" class="form-control" id="password1" placeholder="Password"></input>
-                    </div>
-                    <div class="form-group" id="password2Group">
-						<div id="password2Notification" ></div>
-                        <input type="password" name="password2" class="form-control" id="password2" placeholder="Confirm password"></input>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-1">
-                            <button type="submit" class="btn btn-default btn-primary">Register</button>
-                        </div>
-
-                    </div>
-                </form>
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default main__panel_mtop">
+      <div class="panel-body">
+        <form id="registerForm" remote="none">
+          <div class="form-group" id="emailGroup">
+            <div id="emailNotification"></div>
+            <input class="form-control" id="exampleemail" name="email" placeholder="Email" type="email"></input>
+          </div>
+          <div class="form-group" id="loginGroup">
+            <div id="loginNotification"></div>
+            <input class="form-control" id="examplelogin" name="login" placeholder="Login" type="text"></input>
+          </div>
+          <div class="form-group" id="password1Group">
+            <div id="passwordNotification"></div>
+            <input class="form-control" id="password1" name="password1" placeholder="Password" type="password"></input>
+          </div>
+          <div class="form-group" id="password2Group">
+            <div id="password2Notification"></div>
+            <input class="form-control" id="password2" name="password2" placeholder="Confirm password" type="password"></input>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <button class="btn btn-default btn-primary" type="submit">Register</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-10 col-md-1">
-                <a class="btn btn-success" href="#login">Back</a>
-            </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-offset-10 col-md-1">
+        <a class="btn btn-success" href="#login">Back</a>
+      </div>
+    </div>
+  </div>
 </fest:template>

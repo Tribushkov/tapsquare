@@ -27,7 +27,6 @@ define([
 
     login: function(event) {
       event.preventDefault();
-      this.garbageCleaner();
       var data = $("#idForm").serialize();
       this.user.login(data);
     },
@@ -42,12 +41,10 @@ define([
       this.trigger('show', {
         'name': this.name
       });
-
-      if (this.user.isLogged()) {
+      if (this.user.get("logged")) {
         this.backbone.history.navigate("/#", true);
       } else {
         this.$el.show();
-        this.garbageCleaner();
       }
     },
 
@@ -55,12 +52,6 @@ define([
       this.$el.hide();
     },
 
-    garbageCleaner: function() {
-      $("#passwordControl").html('');
-      $("#loginControl").html('');
-      $("#passwordGroup").removeClass("has-error");
-      $("#loginGroup").removeClass("has-error");
-    },
 
   });
 

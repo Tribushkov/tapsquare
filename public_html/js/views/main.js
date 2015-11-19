@@ -25,10 +25,14 @@ define([
     },
 
     checkLogin: function() {
-      if (this.user.hasChanged('logged')) {
+      if (this.user.hasChanged("logged")) {
         this.user.fetch();
         this.render();
       }
+    },
+
+    toLogout: function(){
+      this.user.logout();
     },
 
     render: function() {

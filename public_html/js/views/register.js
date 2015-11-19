@@ -15,6 +15,7 @@ define([
 		form: $("form"),
 		name: "register",
 		user: User,
+		backbone: Backbone,
 
 		initialize: function() {
 			this.render();
@@ -26,53 +27,23 @@ define([
 
 		register: function(event) {
 			event.preventDefault();
-			this.garbageCleaner()
-			var ready = true;
-			if ($("#password1").val() != $("#password2").val()){
-				$("#passwordNotification").html('<label class="control-label" for="inputWarning2">Passwords does not match</label>')
-				$("#password1Group").addClass("has-error");
-				$("#password2Group").addClass("has-error");
-				ready = false;
-			}
-			if($("#password1").val() == "" ){
-				$("#password1Group").addClass("has-error");
-				$("#passwordNotification").html('<label class="control-label" for="inputWarning2">Empty field</label>');
-				ready = false;
-			}
-			if ($("#password2").val() == ""){
-				$("#password2Group").addClass("has-error");
-				$("#password2Notification").html('<label class="control-label" for="inputWarning2">Empty field</label>');
-				ready = false;
-			}
-			if ($("#exampleemail").val() == ""){
-				$("#emailGroup").addClass("has-error");
-				$("#emailNotification").html('<label class="control-label" for="inputWarning2">Empty field</label>');
-				ready = false;
-			}
-			if ($("#examplelogin").val() == ""){
-				$("#loginGroup").addClass("has-error");
-				$("#loginNotification").html('<label class="control-label" for="inputWarning2">Empty field</label>');
-				ready = false;
-			}
-			if (ready){
-				var data = $("#registerForm").serialize();
-				this.user.register(data);
-			} else {
-				$("#registerForm").addClass('animated shake');
+			var data = {};
+			$("#registerForm").serializeArray().map(function(x){data[x.name] = x.value;});
+
+			this.user.set({
+				'email': data["email"],
+				'name': data["login"],
+				'password': data["password1"]
+			})
+
+			//если пароли введенные на равны между собой, то,
+			//в противном случае, если все норм, то валидируем уже юзером ---->
+
+			if (this.user.isValid()){
+				//все валидационные ошибки обработать
 			}
 
-		},
 
-		garbageCleaner: function(){
-			$("#passwordNotification").html('');
-			$("#password2Notification").html('');
-			$("#emailNotification").html('');
-			$("#loginNotification").html('');
-			$("#loginGroup").removeClass("has-error");
-			$("#emailGroup").removeClass("has-error");
-			$("#password1Group").removeClass("has-error");
-			$("#password2Group").removeClass("has-error");
-			$("#registerForm").removeClass('animated shake');
 		},
 
 		render: function() {
@@ -81,8 +52,8 @@ define([
 		},
 
 		show: function() {
-			if (this.user.isLogged()){
-				backbone.history.navigate("/#", true);
+			if (this.user.get("logged")){
+				this.backbone.history.navigate("/#", true);
 			} else {
 				this.trigger('show',{'name' : this.name});
 				this.$el.show();
