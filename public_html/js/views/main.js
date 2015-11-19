@@ -13,11 +13,12 @@ define([
     template: tmpl,
     el: 'div#main',
     name: "main",
-    user: User,
+    user: null,
 
     initialize: function() {
+      this.user = new User();
       this.render();
-      this.user.on('change', this.checkLogin.bind(this));
+      this.user.on('change', this.checkLogin);
     },
 
     events: {
@@ -25,10 +26,8 @@ define([
     },
 
     checkLogin: function() {
-      if (this.user.hasChanged("logged")) {
         this.user.fetch();
         this.render();
-      }
     },
 
     toLogout: function(){

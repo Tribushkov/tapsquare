@@ -6,19 +6,31 @@ define([
   var Model = Backbone.Model.extend({
 
     backbone: Backbone,
+    ValidationErrors: {},
+    registerSuccessful: null,
+    loginSuccesfull: null,
 
     initialize: function() {
+
       this.set({
         'logged': false,
         'name': '',
         'email': '',
-        'password': '',
-        'ValidationErrors': {}
+        'password1': '',
+        'password2': ''
       });
     },
 
     validate: function(attrs) {
-      console.log(attrs);
+
+      if (!((attrs.name.length > 5) && (attrs.name.length < 12))){
+        this.ValidationErrors['nameLength'] = true;
+      }
+
+      if (attrs.password1 != attrs.password2){
+        this.ValidationErrors['passwordConfirm'] = true;
+      }
+
     },
 
     fetch: function() {
@@ -26,18 +38,16 @@ define([
       $.ajax({
         type: "POST",
         url: "/islogged",
-        data: null,
-        success: function() {
+        data: null
+      }).done(function(data, statusText){
+        if (statusText == 200){
           that.set({
             "logged": true
           });
-        },
-        statusCode: {
-          403: function() {
-            that.set({
-              "logged": false
-            });
-          }
+        } else {
+          that.set({
+            "logged": false
+          });
         }
       });
     },
@@ -48,18 +58,22 @@ define([
         type: "POST",
         url: "/signin",
         data: data1
-      }).done(function(data){
-        console.log(data);
-        switch (data.getResponseHeader('Error')) { ///здесь 403 код ответа, в нормальном случае - 200
+      }).done(function(data, statusText, xhr){
+        if (statusText == 200){
+          that.loginSuccesfull = true;
+        } else {
+        switch (xhr.getResponseHeader('Error')) {
           case '0':
-            return "Wrong password"
+            that.ValidationErrors["Wrong password"] = true;
             break;
           case '1':
-            return "User does not exist"
+            that.ValidationErrors["User does not exist"] = true;
             break;
           default:
             break;
         }
+        that.loginSuccesfull = false;
+      }
       });
     },
 
@@ -69,6 +83,7 @@ define([
         type: "POST",
         url: "/logout"
       }).done(function(){
+        console.log("/logout" + data);
         that.set({
           "logged": false
         });
@@ -77,18 +92,28 @@ define([
 
 
     register: function(data1) {
+      var that = this;
+      data1["password"] = data1["password1"];
       $.ajax({
         type: "POST",
         url: "/signup",
         data: data1
-      }).done(function(data){
-        //зарегать юзера, присвоить данные из модельки, при приколу зачем хз
-        //в случае 403 сказать, что емайл занят уже, сорри
+      }).done(function(data, statusText, xhr){
+        console.log("/signup" + " " + statusText);
+        if (statusText == 200){
+          that.set({
+            "logged": true
+          });
+          that.registerSuccessful = true;
+        } else {
+            that.ValidationErrors["engagedEmail"] = true;
+            that.registerSuccessful = false;
+        }
       });
 
     },
 
   });
 
-  return new Model;
+  return Model;
 });

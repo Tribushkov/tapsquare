@@ -14,7 +14,6 @@
         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#score">
           Scoreboard
         </a>
-
         <fest:choose>
           <fest:when test="data.logged">
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="logoutButton">
@@ -27,7 +26,6 @@
             </a>
           </fest:otherwise>
         </fest:choose>
-
       </div>
     </div>
   </div>

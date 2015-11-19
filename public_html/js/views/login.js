@@ -15,9 +15,10 @@ define([
     el: 'div#login',
     form: $("form"),
     name: "login",
-    user: User,
+    user: null,
 
     initialize: function() {
+      this.user = new User();
       this.render();
     },
 

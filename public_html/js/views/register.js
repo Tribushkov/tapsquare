@@ -1,69 +1,93 @@
 define([
-	'backbone',
-	'tmpl/register',
-	'models/user'
+  'backbone',
+  'tmpl/register',
+  'models/user'
 ], function(
-	Backbone,
-	tmpl,
-	User
+  Backbone,
+  tmpl,
+  User
 ) {
 
-	return Backbone.View.extend({
+  return Backbone.View.extend({
 
-		template: tmpl,
-		el: 'div#register',
-		form: $("form"),
-		name: "register",
-		user: User,
-		backbone: Backbone,
+    el: 'div#register',
+    form: $("form"),
+    name: "register",
+    user: null,
+    backbone: Backbone,
 
-		initialize: function() {
-			this.render();
-		},
+    initialize: function() {
+			this.user = new User();
+      this.render();
+    },
 
-		events: {
-			"submit form": "register"
-		},
+    events: {
+      "submit form": "register"
+    },
 
-		register: function(event) {
-			event.preventDefault();
-			var data = {};
-			$("#registerForm").serializeArray().map(function(x){data[x.name] = x.value;});
+    register: function(event) {
+      event.preventDefault();
 
-			this.user.set({
-				'email': data["email"],
-				'name': data["login"],
-				'password': data["password1"]
-			})
+      for (var i = 0; i < this.user.ValidationErrors.length; i++) {
+        console.log(this.user.ValidationErrors[i]);
+        $('#' + this.user.ValidationErrors[i]).hide();
+      }
 
-			//если пароли введенные на равны между собой, то,
-			//в противном случае, если все норм, то валидируем уже юзером ---->
+      var data = {};
 
-			if (this.user.isValid()){
-				//все валидационные ошибки обработать
-			}
+      $("#registerForm").serializeArray().map(function(x) {
+        data[x.name] = x.value;
+      });
 
+      this.user.set({
+        'email': data["email"],
+        'name': data["login"],
+        'password1': data["password1"],
+        'password2': data["password2"]
+      });
 
-		},
+      if (this.user.isValid()) {
+        this.user.register($("#registerForm").serialize());
+        if (this.user.registerSuccessful) {
+          this.backbone.history.navigate("/#login", true);
+        } else {
+          this.user.ValidationErrors["alreadyExist"] = true;
 
-		render: function() {
-			this.$el.html(registerTmpl());
-			this.$el.hide();
-		},
+          for (var i = 0; i < this.user.ValidationErrors.length; i++) {
+            console.log(this.user.ValidationErrors[i]);
+            $('#' + this.user.ValidationErrors[i]).hide();
+          }
+        }
+      } else {
 
-		show: function() {
-			if (this.user.get("logged")){
-				this.backbone.history.navigate("/#", true);
-			} else {
-				this.trigger('show',{'name' : this.name});
-				this.$el.show();
-			}
-		},
+        for (var i = 0; i < this.user.ValidationErrors.length; i++) {
+          console.log(this.user.ValidationErrors[i]);
+          $('#' + this.user.ValidationErrors[i]).hide();
+        }
+      }
 
-		hide: function() {
-			this.$el.hide();
-		}
+    },
 
-	});
+    render: function() {
+      this.$el.html(registerTmpl(this.user.toJSON()));
+      this.$el.hide();
+    },
+
+    show: function() {
+      if (this.user.get("logged")) {
+        this.backbone.history.navigate("/#", true);
+      } else {
+        this.trigger('show', {
+          'name': this.name
+        });
+        this.$el.show();
+      }
+    },
+
+    hide: function() {
+      this.$el.hide();
+    }
+
+  });
 
 });
