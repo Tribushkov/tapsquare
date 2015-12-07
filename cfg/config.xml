@@ -1,4 +1,4 @@
 <class type='main.Configuration'>
-    <host>127.0.0.1</host>
-    <port>28089</port>
+    <host>0.0.0.0</host>
+    <port>228</port>
 </class>

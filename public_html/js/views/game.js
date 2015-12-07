@@ -33,7 +33,7 @@ define([
 			} else {
 				this.$el.show();
 
-				var socket = new WebSocket("ws://127.0.0.1:28089/game");
+				var socket = new WebSocket("ws://82.146.59.77:228/game");
 
 				for (var i = 0; i < 6; i++) {
 					for (var j = 0; j < 6; j++) {
@@ -85,7 +85,7 @@ define([
 					}
 
 				};
-rt
+
 
 				$(".game-cell").click(function() {
 						socket.send($(this).attr('id'));
