@@ -15,10 +15,10 @@ define([
     el: 'div#login',
     form: $("form"),
     name: "login",
-    user: null,
+    user: User,
 
     initialize: function() {
-      this.user = new User();
+      // this.user = new User();
       this.render();
     },
 
@@ -36,7 +36,6 @@ define([
       this.$el.html(loginTmpl());
       this.$el.hide();
     },
-
 
     show: function() {
       this.trigger('show', {

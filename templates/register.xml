@@ -6,9 +6,6 @@
           <div class="form-group" id="emailGroup">
             <input class="form-control" id="exampleemail" name="email" placeholder="Email" type="email"></input>
           </div>
-          <div class="form-group" id="loginGroup">
-            <input class="form-control" id="examplelogin" name="login" placeholder="Login" type="text"></input>
-          </div>
           <div class="form-group" id="password1Group">
             <input class="form-control" id="password1" name="password1" placeholder="Password" type="password"></input>
           </div>

@@ -4,28 +4,21 @@ define([
   Backbone
 ) {
 
+  var views = [];
+
   var View = Backbone.View.extend({
 
-    views: [],
-    getViews: function() {
-      return this.views;
-    },
 
-    hideViews: function(data) {
-      var that = this;
-      _.each(that.views, function(item) {
-        if (item.name != data.name) {
-          item.hide();
-        }
+    add: function(currentView) {
+      views.push(currentView);
+      this.listenTo(currentView, "show", function() {
+        views.forEach(function(view) {
+          if (view != currentView)
+            view.hide();
+        });
       });
-    },
-
-    add: function(view) {
-      var that = this;
-      this.views.push(view);
-      view.on('show', that.hideViews.bind(this, this.views));
     }
-    
+
   });
-  return new View;
+  return View;
 });
