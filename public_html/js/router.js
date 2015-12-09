@@ -17,9 +17,7 @@ define([
   mainView,
   ViewManager
 ) {
-
-
-
+  
   var Router = Backbone.Router.extend({
 
     scoreboard: null,

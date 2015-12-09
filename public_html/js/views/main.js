@@ -29,43 +29,17 @@ define([
       this.user.on('change', this.checkLogin.bind(that));
     },
 
+    toLogout: function(){
+      this.user.logout();
+    },
+
+    toLogin: function(){
+      this.user.login();
+    },
+
     checkLogin: function() {
       this.user.fetch();
       this.render();
-    },
-
-    toLogout: function() {
-      var that = this;
-      VK.Auth.logout(this.logoutSuccess.bind(that));
-    },
-
-    toLogin: function() {
-      var that = this;
-      VK.Auth.login(this.loginSuccess.bind(that));
-    },
-
-    loginSuccess: function(response) {
-      var self = this;
-      if (response.session) {
-        self.user.set({
-          'first_name': response.session.user.first_name,
-          'last_name': response.session.user.last_name,
-          'id': response.session.user.id,
-          'logged': true
-        });
-      }
-    },
-
-    logoutSuccess: function(response){
-      var self = this;
-      if (response) {
-        self.user.set({
-          'first_name': null,
-          'last_name': null,
-          'id': null,
-          'logged': false
-        });
-      }
     },
 
     render: function() {
