@@ -28,9 +28,6 @@ define([
 
 			this.trigger('show',{'name' : this.name});
 
-			if (!myUser.get('isLogged')) {
-				Backbone.history.navigate("/#", true);
-			} else {
 				this.$el.show();
 
 				var socket = new WebSocket("ws://127.0.0.1:28089/game");
@@ -84,13 +81,10 @@ define([
 					}
 
 				};
-rt
 
 				$(".game-cell").click(function() {
 						socket.send($(this).attr('id'));
 				});
-
-			}
 
 		},
 

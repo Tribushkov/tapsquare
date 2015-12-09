@@ -1,74 +1,76 @@
 define([
-    'backbone',
-    'views/viewmanager',
-	'views/scoreboard',
-	'views/game',
-	'views/login',
-	'views/register',
-	'views/admin',
-	'views/main',
+  'backbone',
+  'views/scoreboard',
+  'views/game',
+  'views/login',
+  'views/register',
+  'views/admin',
+  'views/main',
+  'views/viewmanager'
 ], function(
-    Backbone,
-    ViewManager,
-	scoreboardView,
-	gameView,
-	loginView,
-	registerView,
-	adminView,
-	mainView
+  Backbone,
+  scoreboardView,
+  gameView,
+  loginView,
+  registerView,
+  adminView,
+  mainView,
+  viewManager
 ) {
-	manager = new ViewManager();
 
-	var scoreboard = new scoreboardView();
-	var game = new gameView();
-	var login = new loginView();
-	var register = new registerView();
-	var admin = new adminView();
-	var main = new mainView();
+    var main = new mainView();
+    var register = new registerView();
+    var login = new loginView();
+    var scoreboard = new scoreboardView();
+    var game = new gameView();
+    viewManager.add(main);
+    viewManager.add(scoreboard);
+    viewManager.add(login);
+    viewManager.add(register);
+    viewManager.add(game);
 
-	manager.add(scoreboard);
-	manager.add(game);
-	manager.add(login);
-	manager.add(register);
-	manager.add(admin);
-	manager.add(main);
+  var Router = Backbone.Router.extend({
 
-	var views = manager.getViews();
+    scoreboard: null,
+    game: null,
+    login: null,
+    register: null,
+    admin: null,
+    main: null,
 
-    var Router = Backbone.Router.extend({
-        routes: {
-            'score': 'scoreAction',
-            'game': 'gameAction',
-            'login': 'loginAction',
-            'register': 'registerAction',
-            'adminpage' : 'adminAction',
-            '': 'defaultActions'
-        },
+    routes: {
+      'score': 'scoreAction',
+      'game': 'gameAction',
+      'login': 'loginAction',
+      'register': 'registerAction',
+      'adminpage': 'adminAction',
+      '': 'defaultActions'
+    },
 
-        defaultActions: function() {
-            main.show();
-        },
+    defaultActions: function() {
+      main.show();
+    },
 
-        scoreAction: function() {
-            scoreboard.show();
-        },
+    scoreAction: function() {
+      scoreboard.show();
+    },
 
-        gameAction: function() {
-            game.show();
-        },
+    gameAction: function() {
+      game.show();
+    },
 
-        loginAction: function() {
-            login.show();
-        },
+    loginAction: function() {
+      login.show();
+    },
 
-        registerAction: function() {
-            register.show();
-        },
+    registerAction: function() {
+      register.show();
+    },
 
-        adminAction: function() {
-            admin.show();
-        }
+    adminAction: function() {
+      admin.show();
+    }
 
-    });
-    return new Router();
+  });
+  return new Router();
 });
