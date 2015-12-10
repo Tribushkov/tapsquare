@@ -34,7 +34,7 @@ define([
 				this.$el.show();
 
 				var socket = new WebSocket("ws://82.146.59.77:228/game");
-
+				$('.main__gamescene').html('');
 				for (var i = 0; i < 6; i++) {
 					for (var j = 0; j < 6; j++) {
 						$('.main__gamescene').append('<div class="col-md-2 col-xs-2 col-sm-2 game-cell" id=\"' + i + '_' + j + '\"></div>');
