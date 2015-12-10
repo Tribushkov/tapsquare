@@ -14,12 +14,13 @@ define([
     el: 'div#main',
     name: "main",
     user: User,
-    loginButton: "#login",
-    logoutButton: "#logout",
+    backbone: Backbone,
 
     events: {
       "click #logout": "toLogout",
-      "click #login": 'toLogin'
+      "click #login": 'toLogin',
+      "click #game": 'toGame',
+      "click #scoreboard": 'toScoreboard'
     },
 
     initialize: function() {
@@ -27,6 +28,14 @@ define([
       alert("INITIALIZATION WHAT THE FUCK");
       this.render();
       this.user.on('change', this.checkLogin.bind(that));
+    },
+
+    toGame: function(){
+      this.backbone.history.navigate('#game', {trigger: true, replace: true});
+    },
+
+    toScoreboard: function(){
+      this.backbone.history.navigate('#score', {trigger: true, replace: true});
     },
 
     toLogout: function(){

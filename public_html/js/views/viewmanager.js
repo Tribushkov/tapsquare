@@ -8,7 +8,6 @@ define([
 
   var View = Backbone.View.extend({
 
-
     add: function(currentView) {
       views.push(currentView);
       this.listenTo(currentView, "show", function() {
