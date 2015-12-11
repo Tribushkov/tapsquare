@@ -88,7 +88,7 @@ define([
           method: "POST",
           data: data
         }).done(function() {
-          //TODO razblock user her
+          //TODO unblock user here
         });
       });
     },

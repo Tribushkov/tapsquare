@@ -30,25 +30,41 @@ define([
       this.user.on('change', this.checkLogin.bind(that));
     },
 
-    toGame: function(){
-      this.backbone.history.navigate('#game', {trigger: true, replace: true});
+    toGame: function() {
+      this.backbone.history.navigate('#game', {
+        trigger: true,
+        replace: true
+      });
     },
 
-    toScoreboard: function(){
-      this.backbone.history.navigate('#score', {trigger: true, replace: true});
+    toScoreboard: function() {
+      this.backbone.history.navigate('#score', {
+        trigger: true,
+        replace: true
+      });
     },
 
-    toLogout: function(){
+    toLogout: function() {
       this.user.logout();
     },
 
-    toLogin: function(){
+    toLogin: function() {
       this.user.login();
     },
 
     checkLogin: function() {
       this.user.fetch();
       this.render();
+    },
+
+    block: function() {
+      alert("BLOCKED");
+      $("#overlay").addClass('overlay');
+    },
+
+    unblock: function() {
+      alert("UNBLOCKED");
+      $("#overlay").removeClass('overlay');
     },
 
     render: function() {

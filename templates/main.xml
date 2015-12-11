@@ -1,28 +1,22 @@
 <fest:template context_name="data" xmlns:fest="http://fest.mail.ru">
-<div class="row">
-  <div class="container-fluid">
-      <ul class="navbar-nav navbar-right">
-        <li>
-          <button class="btn btn-warning main__scoreboard-button" id="scoreboard">
-            Scoreboard
-          </button>
-        </li>
-        <li><fest:choose>
-         <fest:when test="data.logged">
-           <a class="btn btn-success main__log-button" id="logout" role="button">
-             Log out
-           </a>
-         </fest:when>
-         <fest:otherwise>
-           <a class="btn btn-success main__log-button" id="login" role="button">
-             Log in
-           </a>
-         </fest:otherwise>
-       </fest:choose></li>
-      </ul>
-  </div>
-          <button class="main__game-button" id="game">
-            TapSquare
-          </button>
-</div>
+ <div class="main">
+   <div class="row main__row-field">
+           <button class="btn btn-warning main__scoreboard-button" id="scoreboard">
+             Scoreboard
+           </button>
+           <fest:choose>
+             <fest:when test="data.logged">
+               <a class="btn btn-success main__log-button" id="logout" role="button">Log out</a>
+             </fest:when>
+             <fest:otherwise>
+               <a class="btn btn-success main__log-button" id="login" role="button">Log in</a>
+             </fest:otherwise>
+           </fest:choose>
+   </div>
+   <div class="row">
+     <button class="main__game-button" id="game">
+       TapSquare
+     </button>
+   </div>
+ </div>
 </fest:template>
