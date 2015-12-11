@@ -22,8 +22,8 @@ define([
 
     fetch: function() {
       var that = this;
-      VK.Auth.getLoginStatus(function(response){
-        if (response.session){
+      VK.Auth.getLoginStatus(function(response) {
+        if (response.session) {
           that.set({
             'first_name': response.session.user.first_name,
             'last_name': response.session.user.last_name,
@@ -51,7 +51,7 @@ define([
       VK.Auth.login(this.loginSuccess.bind(that));
     },
 
-    logoutSuccess: function(response){
+    logoutSuccess: function(response) {
       var self = this;
       if (response) {
         self.set({
@@ -75,7 +75,22 @@ define([
           'logged': true
         });
       }
-        //TODO Запрос серверу за commonScore
+      //TODO block user here
+      data = {};
+      data["user_id"] = response.session.user.id;
+      $.ajax({
+        url: "/signup",
+        method: "POST",
+        data: data
+      }).done(function() {
+        $.ajax({
+          url: "/signin",
+          method: "POST",
+          data: data
+        }).done(function() {
+          //TODO razblock user her
+        });
+      });
     },
 
   });

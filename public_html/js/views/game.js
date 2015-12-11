@@ -97,8 +97,11 @@ define([
 					$(".game-cell").click(function() {
 							socket.send($(this).attr('id'));
 					});
+
 			} else {
+
 				this.backbone.history.navigate('#');
+
 			}
 
 		},
