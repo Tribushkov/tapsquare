@@ -1,38 +1,36 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="row">
+  <div class="row">
     <div class="col-md-offset-2 col-md-2">
-        <div class="panel panel-info main__panel_mtop">
-            <table class="table table-hover table-condenced">
-                <thead>
-                    <tr>
-                        <th style="text-align:center">All users Email's:</th>
-                    </tr>
-                </thead>
-                <tbody id="usersTable" style="text-align:center">
-                </tbody>
-            </table>
-        </div>
+      <div class="panel panel-info main__panel_mtop">
+        <table class="table table-hover table-condenced">
+          <thead>
+            <tr>
+              <th style="text-align:center">All users Email's:</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable" style="text-align:center"></tbody>
+        </table>
+      </div>
     </div>
     <div class="col-md-4">
-        <div class="panel panel-info main__panel_mtop">
-            <table class="table table-hover table-condenced">
-                <thead>
-                    <tr>
-                        <th style="text-align:center">Logged in users Email's:</th>
-                    </tr>
-                </thead>
-                <tbody id="loggedTable" style="text-align:center">
-                </tbody>
-            </table>
+      <div class="panel panel-info main__panel_mtop">
+        <table class="table table-hover table-condenced">
+          <thead>
+            <tr>
+              <th style="text-align:center">Logged in users Email's:</th>
+            </tr>
+          </thead>
+          <tbody id="loggedTable" style="text-align:center"></tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-5 col-md-2" id="js-back">
+          <a class="btn btn-success" href="#">Back</a>
         </div>
-        <div class="row">
-            <div class="col-md-offset-5 col-md-2" id="js-back">
-                <a class="btn btn-success" href="#">Back</a>
-            </div>
-            <div class="col-md-2" id="js-back">
-                <a class="btn btn-danger" href="/admin?shutdown=1000">SHUT DOWN SERVER</a>
-            </div>
+        <div class="col-md-2" id="js-back">
+          <a class="btn btn-danger" href="/admin?shutdown=1000">SHUT DOWN SERVER</a>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </fest:template>

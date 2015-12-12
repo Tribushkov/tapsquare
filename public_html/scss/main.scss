@@ -1,0 +1,22 @@
+$white: #fff;
+$cerulean: #00aeef;
+$gray: #808080;
+$my_orange: #f15d41;
+$shaft: #2d3133;
+$black_20: rgba(0, 0, 0, 0.2);
+
+$font_0: roboto;
+$url_0: url(../fonts/font.ttf);
+
+@font-face {
+  font-family: $font_0;
+  src: $url_0;
+}
+
+body {
+  overflow: hidden;
+  font-family: $font_0;
+}
+
+@import "menu";
+@import "game";
