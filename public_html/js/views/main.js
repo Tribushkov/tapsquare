@@ -1,11 +1,9 @@
 define([
   'backbone',
-  'tmpl/main',
-  'models/user'
+  'tmpl/main'
 ], function(
   Backbone,
-  tmpl,
-  User
+  tmpl
 ) {
 
   return Backbone.View.extend({
@@ -13,7 +11,6 @@ define([
     template: tmpl,
     el: 'div#main',
     name: "main",
-    user: User,
     backbone: Backbone,
 
     events: {
@@ -27,7 +24,7 @@ define([
       var that = this;
       alert("INITIALIZATION WHAT THE FUCK");
       this.render();
-      this.user.on('change', this.checkLogin.bind(that));
+      this.model.on('change', this.checkLogin.bind(that));
     },
 
     toGame: function() {
@@ -45,15 +42,15 @@ define([
     },
 
     toLogout: function() {
-      this.user.logout();
+      this.model.logout();
     },
 
     toLogin: function() {
-      this.user.login();
+      this.model.login();
     },
 
     checkLogin: function() {
-      this.user.fetch();
+      this.model.fetch();
       this.render();
     },
 
@@ -68,7 +65,7 @@ define([
     },
 
     render: function() {
-      this.$el.html(mainTmpl(this.user.toJSON()));
+      this.$el.html(mainTmpl(this.model.toJSON()));
     },
 
     show: function() {

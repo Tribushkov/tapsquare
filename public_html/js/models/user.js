@@ -95,5 +95,5 @@ define([
 
   });
 
-  return new Model;
+  return new Model();
 });

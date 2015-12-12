@@ -1,11 +1,9 @@
 define([
   'backbone',
   'tmpl/game',
-  'models/user'
 ], function(
   Backbone,
-  tmpl,
-  User
+  tmpl
 ) {
 
   return Backbone.View.extend({
@@ -13,18 +11,17 @@ define([
     template: tmpl,
     el: 'div#game',
     name: "game",
-    user: User,
     backbone: Backbone,
 
     initialize: function() {
       var that = this;
       alert("INITIALIZATION WHAT THE FUCK");
       this.render();
-      this.user.on('change', this.checkLogin.bind(that));
+      this.model.on('change', this.checkLogin.bind(that));
     },
 
     checkLogin: function() {
-      this.user.fetch();
+      this.model.fetch();
     },
 
     events: {
@@ -37,7 +34,7 @@ define([
     },
     show: function() {
 
-      if (this.user.get("logged")) {
+      if (this.model.get("logged")) {
         this.trigger('show', {
           'name': this.name
         });

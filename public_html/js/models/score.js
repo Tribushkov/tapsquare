@@ -1,11 +1,13 @@
 define([
-    'backbone'
+  'backbone'
 ], function(
-    Backbone
-){
+  Backbone
+) {
 
-    var Model = Backbone.Model.extend({
-    });
+  var Model = Backbone.Model.extend({
+    name: "",
+    score: 0
+  });
 
-    return Model;
+  return Model;
 });
