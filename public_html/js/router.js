@@ -5,7 +5,8 @@ define([
   'views/main',
   'views/viewmanager',
   'models/user',
-  'collections/scoreboard'
+  'collections/scoreboard',
+  'models/game'
 ], function(
   Backbone,
   scoreboardView,
@@ -13,7 +14,8 @@ define([
   mainView,
   ViewManager,
   user,
-  scores
+  scores,
+  gameModel
 ) {
 
   var Router = Backbone.Router.extend({
@@ -38,7 +40,8 @@ define([
         model: scores
       });
       game = new gameView({
-        model: user
+        model: user,
+        director: gameModel
       });
       this.viewManager.add(main);
       this.viewManager.add(scoreboard);

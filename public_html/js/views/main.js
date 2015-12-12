@@ -54,16 +54,6 @@ define([
       this.render();
     },
 
-    block: function() {
-      alert("BLOCKED");
-      $("#overlay").addClass('overlay');
-    },
-
-    unblock: function() {
-      alert("UNBLOCKED");
-      $("#overlay").removeClass('overlay');
-    },
-
     render: function() {
       this.$el.html(mainTmpl(this.model.toJSON()));
     },

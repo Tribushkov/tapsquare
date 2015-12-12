@@ -25,13 +25,18 @@ define([
     },
 
     events: {
+      'click #back': 'backtoMenu',
+    },
 
+    backtoMenu: function() {
+      #TODO user deleting from game, send socket i wanna loose
     },
 
     render: function() {
       this.$el.html(gameTmpl());
       this.$el.hide();
     },
+
     show: function() {
 
       if (this.model.get("logged")) {

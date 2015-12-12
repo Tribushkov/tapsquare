@@ -5,14 +5,13 @@ define([
 ) {
 
 	var Model = Backbone.Model.extend({
-		//  стандартные функции:
+
 		initialize: function() {
 
 		},
-	}, {
-		//  кастомные функции:
+
 	});
 
-	return Model;
+	return new Model();
 
 });
