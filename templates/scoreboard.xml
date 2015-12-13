@@ -1,7 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
   <div class="col-md-offset-4 col-md-4">
-    <div class="row">
-    </div>
+    <div class="row"></div>
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
       <thead>
         <tr>
@@ -45,9 +44,11 @@
       </tbody>
     </table>
 
-    <div class="row"> <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#">
-      Back
-    </a> </div>
+    <div class="row">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#">
+        Back
+      </a>
+    </div>
 
   </div>
 </fest:template>

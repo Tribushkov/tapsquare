@@ -1,17 +1,17 @@
 define([
-	'backbone'
+  'backbone'
 ], function(
-	Backbone
+  Backbone
 ) {
 
-	var Model = Backbone.Model.extend({
+  var Model = Backbone.Model.extend({
 
-		initialize: function() {
+    initialize: function() {
 
-		},
+    },
 
-	});
+  });
 
-	return new Model();
+  return new Model();
 
 });

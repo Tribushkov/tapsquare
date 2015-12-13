@@ -27,8 +27,7 @@ define([
       'click #back': 'backtoMenu',
     },
 
-    backtoMenu: function() {
-    },
+    backtoMenu: function() {},
 
     render: function() {
       this.$el.html(gameTmpl());
@@ -46,12 +45,12 @@ define([
 
         var socket = new WebSocket("ws://127.0.0.1:28089/game");
 
-				$('.game__game-field').html('');
-				for (var i = 0; i < 6; i++) {
-					for (var j = 0; j < 6; j++) {
-						$('.game__game-field').append('<div class="col-md-2 col-xs-2 col-sm-2 game__game-field__game-cell" id=\"' + i + '_' + j + '\"><div class="game__game-field__game-cell__inner"></div>');
-					}
-				}
+        $('.game__game-field').html('');
+        for (var i = 0; i < 6; i++) {
+          for (var j = 0; j < 6; j++) {
+            $('.game__game-field').append('<div class="col-md-2 col-xs-2 col-sm-2 game__game-field__game-cell" id=\"' + i + '_' + j + '\"><div class="game__game-field__game-cell__inner"></div>');
+          }
+        }
 
         socket.onopen = function(e) {
 
@@ -119,7 +118,7 @@ define([
 
     hide: function() {
       this.$el.hide();
-			$('.game__game-field').html('');
+      $('.game__game-field').html('');
     },
 
   });

@@ -26,8 +26,8 @@ define([
       this.render();
     },
 
-    checkUpdates: function(){
-      if (this.model.hasChanged('logged')){
+    checkUpdates: function() {
+      if (this.model.hasChanged('logged')) {
         this.render();
       }
     },

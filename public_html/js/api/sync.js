@@ -12,32 +12,32 @@ define([
 
         case "create":
           var data = model.toJSON();
-            console.log("CREATE");
+          console.log("CREATE");
           $.ajax({
             type: "POST",
             url: url['create'],
             data: data
           }).done(function(obj, xhr, status) {
             if (JSON.parse(status["status"]) == 200) {
-                options.success(model);
+              options.success(model);
             }
           });
           break;
 
         case "read":
-        console.log("READ");
+          console.log("READ");
           $.ajax({
             type: "GET",
             url: url['read']
           }).done(function(obj, xhr, status) {
             if (JSON.parse(status["status"]) == 200) {
-                options.success(model);
+              options.success(model);
             }
           });
           break;
 
         case "update":
-            console.log("UPDATE");
+          console.log("UPDATE");
           var data = model.toJSON();
           $.ajax({
             type: "PUT",
@@ -45,19 +45,19 @@ define([
             data: data
           }).done(function(obj, xhr, status) {
             if (JSON.parse(status["status"]) == 200) {
-                options.success(model);
+              options.success(model);
             }
           });
           break;
 
         case "delete":
-            console.log("DELETE");
+          console.log("DELETE");
           $.ajax({
             type: "DELETE",
             url: url['delete']
-          }).done(function(obj, xhr, status){
+          }).done(function(obj, xhr, status) {
             if (JSON.parse(status["status"]) == 200) {
-                options.success(model);
+              options.success(model);
             }
           });
 

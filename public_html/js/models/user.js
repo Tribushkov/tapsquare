@@ -20,7 +20,7 @@ define([
       'score': 0
     },
 
-    initialize: function(){
+    initialize: function() {
       this.set({
         'user_id': null,
         'logged': false,
@@ -39,7 +39,7 @@ define([
 
     optionsCreate: ({
       success: function(model) {
-          Model.prototype.sync('update',   model,   model.optionsUpdate);
+        Model.prototype.sync('update', model, model.optionsUpdate);
       },
       error: function(model) {},
     }),
@@ -89,7 +89,11 @@ define([
     loginSuccess: function(response) {
       var self = this;
       if (response.session) {
-        self.set({'user_id': response.session.user.id}, {silent : true});
+        self.set({
+          'user_id': response.session.user.id
+        }, {
+          silent: true
+        });
         this.sync('create', this, this.optionsCreate);
       }
     },
