@@ -5,7 +5,6 @@ define([
 ) {
 
   var views = [];
-
   var View = Backbone.View.extend({
 
     add: function(currentView) {

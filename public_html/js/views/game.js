@@ -15,13 +15,12 @@ define([
 
     initialize: function() {
       var that = this;
-      alert("INITIALIZATION WHAT THE FUCK");
       this.render();
       this.model.on('change', this.checkLogin.bind(that));
     },
 
     checkLogin: function() {
-      this.model.fetch();
+      this.render();
     },
 
     events: {
@@ -29,7 +28,6 @@ define([
     },
 
     backtoMenu: function() {
-      #TODO user deleting from game, send socket i wanna loose
     },
 
     render: function() {

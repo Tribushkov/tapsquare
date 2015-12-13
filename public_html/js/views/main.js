@@ -22,9 +22,14 @@ define([
 
     initialize: function() {
       var that = this;
-      alert("INITIALIZATION WHAT THE FUCK");
+      this.model.on('change', this.checkUpdates.bind(that));
       this.render();
-      this.model.on('change', this.checkLogin.bind(that));
+    },
+
+    checkUpdates: function(){
+      if (this.model.hasChanged('logged')){
+        this.render();
+      }
     },
 
     toGame: function() {
@@ -49,11 +54,6 @@ define([
       this.model.login();
     },
 
-    checkLogin: function() {
-      this.model.fetch();
-      this.render();
-    },
-
     render: function() {
       this.$el.html(mainTmpl(this.model.toJSON()));
     },
@@ -68,6 +68,7 @@ define([
     hide: function() {
       this.$el.hide();
     }
+
 
   });
 

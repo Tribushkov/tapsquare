@@ -19,10 +19,12 @@ require.config({
 
 define([
   'backbone',
-  'router'
+  'router',
+  'api/sync'
 ], function(
   Backbone,
-  router
+  router,
+  sync
 ) {
   Backbone.history.start();
 });
